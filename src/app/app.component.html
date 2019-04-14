@@ -1,14 +1,31 @@
-<section class="hero is-primary is-bold is-fullheight">
+<nav class="navbar is-info is-spaced">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <img src="assets/images/logo-inverted.png" alt="Neat">
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-end">
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">Country</a>
+        <div class="navbar-dropdown is-right is-boxed">
+          <a class="navbar-item" routerLink="/it">Italy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero is-light is-fullheight">
   <div class="hero-body">
-    <div class="has-text-centered">
-      <h1 class="title">Lorem Ipsum</h1>
-      <h2 class="subtitle">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris hendrerit orci vitae mi sagittis, eget pharetra
-        ligula efficitur. Fusce tempor mollis velit, eget ultrices leo rutrum sed. Curabitur nec ante sollicitudin,
-        dignissim neque et, ullamcorper tortor. Proin tempus porttitor finibus. Proin congue dolor quis dui porta
-        semper. Fusce finibus ultricies quam, eu suscipit odio mollis a. Donec orci libero, facilisis in condimentum a,
-        suscipit sed dolor. Suspendisse ullamcorper mattis fringilla. Curabitur non nibh non nibh commodo fringilla.
-      </h2>
+    <div class="container">
+      <router-outlet></router-outlet>
     </div>
   </div>
 </section>
+
+<footer class="footer">
+  <div class="content has-text-centered">
+    <strong>Neat</strong> by <a href="https://github.com/avalloneandrea">Andrea Avallone</a>
+  </div>
+</footer>

@@ -7,7 +7,7 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "app",
+      "prefix": "",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
@@ -28,6 +28,7 @@
             ],
             "styles": [
               "node_modules/bulma/css/bulma.css",
+              "node_modules/bulma-extensions/dist/css/bulma-extensions.min.css",
               "src/styles.scss"
             ],
             "scripts": [],

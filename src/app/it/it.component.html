@@ -1,0 +1,50 @@
+<div class="columns is-multiline">
+
+  <div class="column is-full">
+    <form class="notification" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <div class="field">
+        <label class="label">
+          Gross income
+        </label>
+        <div class="control">
+          <input class="input is-medium" type="number" formControlName="grossIncome">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">
+          Additional salaries
+        </label>
+        <div class="control">
+          <input class="slider is-fullwidth is-medium is-circle" type="range" step="1" min="0" max="3" formControlName="additionalSalaries">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">
+          Net bonus
+        </label>
+        <div class="control">
+          <input class="input is-medium" type="number" formControlName="netBonus">
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <button class="button is-link is-medium is-fullwidth is-rounded" type="submit">
+            Submit
+          </button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="column is-full" *ngIf="paycheck$ | async as paycheck">
+    <div class="notification has-text-centered">
+      Your net income is EUR {{paycheck.netIncome}}
+    </div>
+  </div>
+
+</div>
