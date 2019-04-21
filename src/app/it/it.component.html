@@ -43,7 +43,7 @@
 
   <div class="column is-full" *ngIf="paycheck$ | async as paycheck">
     <div class="notification has-text-centered">
-      Your net income is EUR {{paycheck.netIncome}}
+      Your net income is EUR {{paycheck.netIncome | number:'1.2-2':'it'}}
     </div>
   </div>
 
