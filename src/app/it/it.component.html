@@ -1,49 +1,109 @@
-<div class="columns is-multiline">
+<form class="panel" [formGroup]="form" (ngSubmit)="onSubmit()">
 
-  <div class="column is-full">
-    <form class="notification" [formGroup]="form" (ngSubmit)="onSubmit()">
-
-      <div class="field">
-        <label class="label">
-          Gross income
-        </label>
-        <div class="control">
-          <input class="input is-medium" type="number" formControlName="grossIncome">
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">
-          Additional salaries
-        </label>
-        <div class="control">
-          <input class="slider is-fullwidth is-medium is-circle" type="range" step="1" min="0" max="3" formControlName="additionalSalaries">
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">
-          Net bonus
-        </label>
-        <div class="control">
-          <input class="input is-medium" type="number" formControlName="netBonus">
-        </div>
-      </div>
-
-      <div class="field">
-        <div class="control">
-          <button class="button is-link is-medium is-fullwidth is-rounded" type="submit">
-            Submit
-          </button>
-        </div>
-      </div>
-
-    </form>
+  <div class="field">
+    <label class="label">
+      Gross income
+    </label>
+    <div class="control">
+      <input class="input is-medium" type="number" formControlName="grossIncome">
+    </div>
   </div>
 
-  <div class="column is-full" *ngIf="paycheck$ | async as paycheck">
-    <div class="notification has-text-centered">
-      Your net income is EUR {{paycheck.netIncome | number:'1.2-2':'it'}}
+  <div class="field">
+    <label class="label">
+      Additional salaries
+    </label>
+    <div class="control">
+      <input class="slider is-fullwidth is-medium is-circle" type="range" step="1" min="0" max="3" formControlName="additionalSalaries">
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">
+      Net bonus
+    </label>
+    <div class="control">
+      <input class="input is-medium" type="number" formControlName="netBonus">
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <button class="button is-info is-medium is-fullwidth is-rounded" type="submit">
+        Submit
+      </button>
+    </div>
+  </div>
+
+</form>
+
+<div class="panel" *ngIf="paycheck$ | async as paycheck">
+
+  <div class="level is-mobile">
+    <div class="level-left">
+      <div class="level-item">
+        <p class="has-text-weight-bold">
+          Gross income
+        </p>
+      </div>
+    </div>
+    <div class="level-right">
+      <div class="level-item">
+        <p>
+          {{paycheck?.grossIncome | number:'1.2-2':'it'}} €
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="level is-mobile" *ngFor="let item of paycheck?.taxes">
+    <div class="level-left">
+      <div class="level-item">
+        <p class="has-text-weight-bold">
+          {{item?.code}}
+        </p>
+      </div>
+    </div>
+    <div class="level-right">
+      <div class="level-item">
+        <p class="has-text-danger">
+          - {{item.amount | number:'1.2-2':'it'}} €
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="level is-mobile" *ngFor="let item of paycheck?.credits">
+    <div class="level-left">
+      <div class="level-item">
+        <p class="has-text-weight-bold">
+          {{item?.code}}
+        </p>
+      </div>
+    </div>
+    <div class="level-right">
+      <div class="level-item">
+        <p class="has-text-success">
+          + {{item.amount | number:'1.2-2':'it'}} €
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="level is-mobile">
+    <div class="level-left">
+      <div class="level-item">
+        <p class="has-text-weight-bold">
+          Net income
+        </p>
+      </div>
+    </div>
+    <div class="level-right">
+      <div class="level-item">
+        <p class="has-text-info">
+          {{paycheck?.netIncome | number:'1.2-2':'it'}} €
+        </p>
+      </div>
     </div>
   </div>
 

@@ -26,10 +26,11 @@ export class ItComponent implements OnInit {
   }
 
   onSubmit() {
-    const p1 = this.form.value.additionalSalaries;
-    const p2 = this.form.value.grossIncome;
-    const p3 = this.form.value.netBonus;
-    this.paycheck$ = this.itService.getPaycheck(p1, p2, p3);
+    this.paycheck$ = this.itService.getPaycheck(
+      this.form.value.additionalSalaries,
+      this.form.value.grossIncome,
+      this.form.value.netBonus
+    );
   }
 
 }
