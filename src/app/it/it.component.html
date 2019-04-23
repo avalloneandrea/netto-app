@@ -5,7 +5,7 @@
       Gross income
     </label>
     <div class="control">
-      <input class="input is-medium" type="number" formControlName="grossIncome">
+      <input class="input is-link is-medium" type="number" formControlName="grossIncome">
     </div>
   </div>
 
@@ -14,7 +14,7 @@
       Additional salaries
     </label>
     <div class="control">
-      <input class="slider is-fullwidth is-medium is-circle" type="range" step="1" min="0" max="3" formControlName="additionalSalaries">
+      <input class="slider is-fullwidth is-link is-medium is-circle" type="range" step="1" min="0" max="3" formControlName="additionalSalaries">
     </div>
   </div>
 
@@ -23,7 +23,7 @@
       Net bonus
     </label>
     <div class="control">
-      <input class="input is-medium" type="number" formControlName="netBonus">
+      <input class="input is-link is-medium" type="number" formControlName="netBonus">
     </div>
   </div>
 
@@ -49,8 +49,8 @@
     </div>
     <div class="level-right">
       <div class="level-item">
-        <p>
-          {{paycheck?.grossIncome | number:'1.2-2':'it'}} €
+        <p class="has-text-success">
+          + {{paycheck?.grossIncome | number:'1.2-2':'it'}} €
         </p>
       </div>
     </div>
@@ -100,7 +100,7 @@
     </div>
     <div class="level-right">
       <div class="level-item">
-        <p class="has-text-info">
+        <p class="has-text-link">
           {{paycheck?.netIncome | number:'1.2-2':'it'}} €
         </p>
       </div>
