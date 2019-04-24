@@ -1,18 +1,16 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
 import { Paycheck } from '../domain/paycheck';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ItService {
+export class PaycheckService {
 
-  protected basePath;
-
-  constructor(protected httpClient: HttpClient) {
-    this.basePath = 'https://neatapi.herokuapp.com';
-  }
+  constructor(protected httpClient: HttpClient) {}
 
   getPaycheck(additionalSalaries?: number, grossIncome?: number, netBonus?: number): Observable<Paycheck> {
 
@@ -27,7 +25,7 @@ export class ItService {
     let headers = new HttpHeaders();
     headers = headers.set('Accept', ['application/json']);
 
-    return this.httpClient.get<Paycheck>(`${this.basePath}/it/paycheck`, { params, headers });
+    return this.httpClient.get<Paycheck>(`${environment.basePath}/it/paycheck`, { params, headers });
 
   }
 

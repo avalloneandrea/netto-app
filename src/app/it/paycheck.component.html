@@ -31,10 +31,10 @@
     <div class="control">
       <button class="button is-link is-medium is-fullwidth is-rounded" type="submit">
         <span class="icon">
-          <i class="fas fa-fw fa-calculator"></i>
+          <i class="far fa-fw fa-file-alt"></i>
         </span>
         <span>
-          Elaborate
+          Get my paycheck
         </span>
       </button>
     </div>
@@ -43,6 +43,14 @@
 </form>
 
 <div class="panel" *ngIf="paycheck$ | async as paycheck" [@animate]="paycheck$">
+
+  <div class="level is-mobile">
+    <div class="level-item has-text-centered">
+      <p class="title">
+        Your paycheck
+      </p>
+    </div>
+  </div>
 
   <div class="level is-mobile">
     <div class="level-left">
@@ -61,41 +69,41 @@
     </div>
   </div>
 
-  <div class="level is-mobile" *ngFor="let item of paycheck?.taxes">
+  <div class="level is-mobile" *ngFor="let tax of paycheck?.taxes">
     <div class="level-left">
       <div class="level-item">
         <p class="has-text-weight-bold">
-          {{item?.code}}
+          {{tax?.code}}
         </p>
       </div>
     </div>
     <div class="level-right">
       <div class="level-item">
         <p class="has-text-danger">
-          - {{item.amount | number:'1.2-2':'it'}} €
+          - {{tax.value | number:'1.2-2':'it'}} €
         </p>
       </div>
     </div>
   </div>
 
-  <div class="level is-mobile" *ngFor="let item of paycheck?.credits">
+  <div class="level is-mobile" *ngFor="let credit of paycheck?.credits">
     <div class="level-left">
       <div class="level-item">
         <p class="has-text-weight-bold">
-          {{item?.code}}
+          {{credit?.code}}
         </p>
       </div>
     </div>
     <div class="level-right">
       <div class="level-item">
         <p class="has-text-success">
-          + {{item.amount | number:'1.2-2':'it'}} €
+          + {{credit.value | number:'1.2-2':'it'}} €
         </p>
       </div>
     </div>
   </div>
 
-  <div class="is-divider"></div>
+  <div class="level is-divider"></div>
 
   <div class="level is-mobile">
     <div class="level-left">

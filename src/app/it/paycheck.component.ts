@@ -1,28 +1,28 @@
+import { query, transition, trigger, useAnimation } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { query, transition, trigger, useAnimation } from '@angular/animations';
 
-import { ItService } from './it.service';
-import { Paycheck } from '../domain/paycheck';
+import { PaycheckService } from './paycheck.service';
 import { fadeIn } from '../domain/animations';
+import { Paycheck } from '../domain/paycheck';
 
 @Component({
-  selector: 'it',
-  templateUrl: './it.component.html',
-  styleUrls: ['./it.component.scss'],
+  selector: 'it-paycheck',
+  templateUrl: './paycheck.component.html',
+  styleUrls: ['./paycheck.component.scss'],
   animations: [trigger('animate', [
     transition(':enter',
       query('.field, .level',
         useAnimation(fadeIn)))
   ])]
 })
-export class ItComponent implements OnInit {
+export class PaycheckComponent implements OnInit {
 
   form: FormGroup;
   paycheck$: Observable<Paycheck>;
 
-  constructor(protected itService: ItService) {}
+  constructor(protected paycheckService: PaycheckService) {}
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -33,7 +33,7 @@ export class ItComponent implements OnInit {
   }
 
   onSubmit() {
-    this.paycheck$ = this.itService.getPaycheck(
+    this.paycheck$ = this.paycheckService.getPaycheck(
       this.form.value.additionalSalaries,
       this.form.value.grossIncome,
       this.form.value.netBonus
