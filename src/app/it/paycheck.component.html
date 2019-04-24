@@ -14,7 +14,8 @@
       Additional salaries
     </label>
     <div class="control">
-      <input class="slider is-fullwidth is-link is-medium is-circle" type="range" step="1" min="0" max="3" formControlName="additionalSalaries">
+      <input class="slider tooltip is-fullwidth is-link is-medium is-circle" type="range" step="1" min="0" max="3"
+             formControlName="additionalSalaries" [attr.data-tooltip]="form.value.additionalSalaries">
     </div>
   </div>
 
