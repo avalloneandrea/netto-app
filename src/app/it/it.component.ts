@@ -1,14 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { query, transition, trigger, useAnimation } from '@angular/animations';
 
 import { ItService } from './it.service';
 import { Paycheck } from '../domain/paycheck';
+import { fadeIn } from '../domain/animations';
 
 @Component({
   selector: 'it',
   templateUrl: './it.component.html',
-  styleUrls: ['./it.component.scss']
+  styleUrls: ['./it.component.scss'],
+  animations: [trigger('animate', [
+    transition(':enter',
+      query('.field, .level',
+        useAnimation(fadeIn)))
+  ])]
 })
 export class ItComponent implements OnInit {
 
