@@ -1,6 +1,8 @@
+@import "../../node_modules/bulma/sass/utilities/initial-variables.sass";
+
 footer, footer * {
-  background-color: hsl(217, 71%, 53%);
-  color: hsl(0, 0%, 100%);
+  background-color: $blue;
+  color: $white;
 }
 
 .container {
