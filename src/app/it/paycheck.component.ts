@@ -1,11 +1,13 @@
 import { query, transition, trigger, useAnimation } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs';
 
-import { PaycheckService } from './paycheck.service';
+import { Subject, timer } from 'rxjs';
+import { take, takeUntil } from 'rxjs/operators';
+
 import { fadeIn } from '../domain/animations';
 import { Paycheck } from '../domain/paycheck';
+import { PaycheckService } from './paycheck.service';
 
 @Component({
   selector: 'it-paycheck',
@@ -20,11 +22,14 @@ import { Paycheck } from '../domain/paycheck';
 export class PaycheckComponent implements OnInit {
 
   form: FormGroup;
-  paycheck$: Observable<Paycheck>;
+  loading$: Subject<boolean>;
+  paycheck$: Subject<Paycheck>;
 
   constructor(protected paycheckService: PaycheckService) {}
 
   ngOnInit() {
+    this.loading$ = new Subject();
+    this.paycheck$ = new Subject();
     this.form = new FormGroup({
       additionalSalaries: new FormControl(1),
       grossIncome: new FormControl(0),
@@ -33,15 +38,28 @@ export class PaycheckComponent implements OnInit {
   }
 
   onSubmit() {
-    this.paycheck$ = this.paycheckService.getPaycheck(
+
+    timer(1000).pipe(
+      takeUntil(this.paycheck$)
+    ).subscribe(response => {
+      this.loading$.next(true);
+    });
+
+    this.paycheckService.getPaycheck(
       this.form.value.additionalSalaries,
       this.form.value.grossIncome,
       this.form.value.netBonus
-    );
+    ).pipe(
+      take(1),
+    ).subscribe(paycheck => {
+      this.loading$.next(false);
+      this.paycheck$.next(paycheck);
+    });
+
   }
 
   onReset() {
-    this.paycheck$ = null;
+    this.paycheck$.next(null);
     this.form.setValue({
       additionalSalaries: 1,
       grossIncome: 0,
