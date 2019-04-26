@@ -1,7 +1,6 @@
 import { query, transition, trigger, useAnimation } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-
 import { Subject, timer } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
 
@@ -25,7 +24,7 @@ export class PaycheckComponent implements OnInit {
   loading$: Subject<boolean>;
   paycheck$: Subject<Paycheck>;
 
-  constructor(protected paycheckService: PaycheckService) {}
+  constructor(private paycheckService: PaycheckService) {}
 
   ngOnInit() {
     this.loading$ = new Subject();

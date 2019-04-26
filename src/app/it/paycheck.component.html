@@ -2,7 +2,7 @@
 
   <div class="field">
     <label class="label">
-      Gross income
+      {{'Gross income' | translate}}
     </label>
     <div class="control">
       <input class="input is-info" type="number" formControlName="grossIncome">
@@ -11,7 +11,7 @@
 
   <div class="field">
     <label class="label">
-      Additional salaries
+      {{'Additional salaries' | translate}}
     </label>
     <div class="control">
       <input class="slider tooltip is-fullwidth is-info" type="range" step="1" min="0" max="3" formControlName="additionalSalaries" [attr.data-tooltip]="form.value.additionalSalaries">
@@ -20,7 +20,7 @@
 
   <div class="field">
     <label class="label">
-      Net bonus
+      {{'Net bonus' | translate}}
     </label>
     <div class="control">
       <input class="input is-info" type="number" formControlName="netBonus">
@@ -31,7 +31,7 @@
     <div class="control">
       <button class="button is-info is-fullwidth" type="submit">
         <i class="icon far fa-fw fa-file-alt"></i>
-        <strong>Get my paycheck</strong>
+        <strong>{{'Submit' | translate}}</strong>
       </button>
     </div>
   </div>
@@ -45,7 +45,7 @@
   <div class="level is-mobile">
     <div class="level-item">
       <p class="title has-text-centered">
-        Your paycheck
+        {{'Paycheck' | translate}}
       </p>
     </div>
   </div>
@@ -54,7 +54,7 @@
     <div class="level-left">
       <div class="level-item">
         <p class="has-text-weight-bold">
-          Gross income
+          {{'Gross income' | translate}}
         </p>
       </div>
     </div>
@@ -71,7 +71,7 @@
     <div class="level-left">
       <div class="level-item">
         <p class="has-text-weight-bold">
-          {{tax?.code}}
+          {{tax?.code | translate}}
         </p>
       </div>
     </div>
@@ -88,7 +88,7 @@
     <div class="level-left">
       <div class="level-item">
         <p class="has-text-weight-bold">
-          {{credit?.code}}
+          {{credit?.code | translate}}
         </p>
       </div>
     </div>
@@ -107,7 +107,7 @@
     <div class="level-left">
       <div class="level-item">
         <p class="has-text-weight-bold">
-          Net income
+          {{'Net income' | translate}}
         </p>
       </div>
     </div>
@@ -123,7 +123,7 @@
   <div class="level control">
     <button class="button is-info is-fullwidth" (click)="onReset()">
       <i class="icon fas fa-fw fa-undo"></i>
-      <strong>Restart</strong>
+      <strong>{{'Restart' | translate}}</strong>
     </button>
   </div>
 

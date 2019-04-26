@@ -1,6 +1,6 @@
 {
   "name": "neat-app",
-  "version": "1.1.18",
+  "version": "1.1.19",
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
@@ -22,6 +22,8 @@
     "@angular/platform-browser-dynamic": "^7.2.14",
     "@angular/router": "^7.2.14",
     "@fortawesome/fontawesome-free": "^5.8.1",
+    "@ngx-translate/core": "^11.0.1",
+    "@ngx-translate/http-loader": "^4.0.0",
     "bulma": "^0.7.4",
     "bulma-extensions": "^6.2.4",
     "core-js": "~2.6.5",
