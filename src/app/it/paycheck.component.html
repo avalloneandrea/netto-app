@@ -5,7 +5,7 @@
       {{'Gross income' | translate}}
     </label>
     <div class="control">
-      <input class="input is-info" type="number" formControlName="grossIncome">
+      <input class="input is-info is-medium" type="number" formControlName="grossIncome">
     </div>
   </div>
 
@@ -14,7 +14,7 @@
       {{'Additional salaries' | translate}}
     </label>
     <div class="control">
-      <input class="slider tooltip is-fullwidth is-info" type="range" step="1" min="0" max="3" formControlName="additionalSalaries" [attr.data-tooltip]="form.value.additionalSalaries">
+      <input class="slider tooltip is-fullwidth is-info is-medium" type="range" step="1" min="0" max="3" formControlName="additionalSalaries" [attr.data-tooltip]="form.value.additionalSalaries">
     </div>
   </div>
 
@@ -23,13 +23,13 @@
       {{'Net bonus' | translate}}
     </label>
     <div class="control">
-      <input class="input is-info" type="number" formControlName="netBonus">
+      <input class="input is-info is-medium" type="number" formControlName="netBonus">
     </div>
   </div>
 
   <div class="field">
     <div class="control">
-      <button class="button is-info is-fullwidth" type="submit">
+      <button class="button is-info is-medium is-fullwidth" type="submit">
         <i class="icon far fa-fw fa-file-alt"></i>
         <strong>{{'Submit' | translate}}</strong>
       </button>
@@ -42,7 +42,7 @@
 
 <div class="panel" *ngIf="paycheck$ | async as paycheck" [@animate]="paycheck$">
 
-  <div class="level is-mobile">
+  <div class="level">
     <div class="level-item">
       <p class="title has-text-centered">
         {{'Paycheck' | translate}}
@@ -50,7 +50,7 @@
     </div>
   </div>
 
-  <div class="level is-mobile">
+  <div class="level">
     <div class="level-left">
       <div class="level-item">
         <p class="has-text-weight-bold">
@@ -67,7 +67,7 @@
     </div>
   </div>
 
-  <div class="level is-mobile" *ngFor="let tax of paycheck?.taxes">
+  <div class="level" *ngFor="let tax of paycheck?.taxes">
     <div class="level-left">
       <div class="level-item">
         <p class="has-text-weight-bold">
@@ -84,7 +84,7 @@
     </div>
   </div>
 
-  <div class="level is-mobile" *ngFor="let credit of paycheck?.credits">
+  <div class="level" *ngFor="let credit of paycheck?.credits">
     <div class="level-left">
       <div class="level-item">
         <p class="has-text-weight-bold">
@@ -103,7 +103,7 @@
 
   <div class="level is-divider"></div>
 
-  <div class="level is-mobile">
+  <div class="level">
     <div class="level-left">
       <div class="level-item">
         <p class="has-text-weight-bold">
@@ -120,8 +120,8 @@
     </div>
   </div>
 
-  <div class="level control">
-    <button class="button is-info is-fullwidth" (click)="onReset()">
+  <div class="level">
+    <button class="button is-info is-medium is-fullwidth" (click)="onReset()">
       <i class="icon fas fa-fw fa-undo"></i>
       <strong>{{'Restart' | translate}}</strong>
     </button>
