@@ -4,4 +4,5 @@
 # Neat (App)
 
 A responsive web app for computing your net income given your gross income.
+
 You can check the app [here](https://neatapp.herokuapp.com) and the API documentation [here](https://neatapi.herokuapp.com).
