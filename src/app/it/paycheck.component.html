@@ -5,7 +5,7 @@
       Gross income
     </label>
     <div class="control">
-      <input class="input is-link" type="number" formControlName="grossIncome">
+      <input class="input is-info" type="number" formControlName="grossIncome">
     </div>
   </div>
 
@@ -14,7 +14,7 @@
       Additional salaries
     </label>
     <div class="control">
-      <input class="slider tooltip is-fullwidth is-link" type="range" step="1" min="0" max="3" formControlName="additionalSalaries" [attr.data-tooltip]="form.value.additionalSalaries">
+      <input class="slider tooltip is-fullwidth is-info" type="range" step="1" min="0" max="3" formControlName="additionalSalaries" [attr.data-tooltip]="form.value.additionalSalaries">
     </div>
   </div>
 
@@ -23,13 +23,13 @@
       Net bonus
     </label>
     <div class="control">
-      <input class="input is-link" type="number" formControlName="netBonus">
+      <input class="input is-info" type="number" formControlName="netBonus">
     </div>
   </div>
 
   <div class="field">
     <div class="control">
-      <button class="button is-link is-fullwidth" type="submit">
+      <button class="button is-info is-fullwidth" type="submit">
         <i class="icon far fa-fw fa-file-alt"></i>
         <strong>Get my paycheck</strong>
       </button>
@@ -38,7 +38,7 @@
 
 </form>
 
-<div class="pageloader is-link" [class.is-active]="loading$ | async"></div>
+<div class="pageloader is-info" [class.is-active]="loading$ | async"></div>
 
 <div class="panel" *ngIf="paycheck$ | async as paycheck" [@animate]="paycheck$">
 
@@ -61,7 +61,7 @@
     <div class="level-right">
       <div class="level-item">
         <p class="has-text-success">
-          + {{paycheck?.grossIncome | number:'1.2-2':'it'}} €
+          {{paycheck?.grossIncome | number:'1.2-2':'it'}} €
         </p>
       </div>
     </div>
@@ -113,7 +113,7 @@
     </div>
     <div class="level-right">
       <div class="level-item">
-        <p class="has-text-link">
+        <p class="has-text-success">
           {{paycheck?.netIncome | number:'1.2-2':'it'}} €
         </p>
       </div>
@@ -121,7 +121,7 @@
   </div>
 
   <div class="level control">
-    <button class="button is-link is-fullwidth" (click)="onReset()">
+    <button class="button is-info is-fullwidth" (click)="onReset()">
       <i class="icon fas fa-fw fa-undo"></i>
       <strong>Restart</strong>
     </button>
