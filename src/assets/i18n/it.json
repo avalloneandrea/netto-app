@@ -1,15 +1,15 @@
 {
-  "Additional salaries": "Mensilità aggiuntive",
-  "Federal tax": "Addizionale regionale",
-  "Gross income": "Stipendio lordo",
-  "Local tax": "Addizionale comunale",
-  "Net bonus": "Rimborso spese",
-  "Net income": "Stipendio netto",
-  "Paycheck": "La tua busta paga",
-  "Restart": "Ricomincia",
-  "Salary credit": "Detrazione da lavoro dipendente",
-  "Salary credit 2": "Bonus Renzi",
-  "Social tax": "Contributo INPS",
-  "State tax": "Imposta sul reddito",
-  "Submit": "Invia"
+  "ADDITIONAL_SALARIES": "Mensilità aggiuntive",
+  "FEDERAL_TAX": "Addizionale regionale",
+  "GROSS_INCOME": "Stipendio lordo",
+  "LOCAL_TAX": "Addizionale comunale",
+  "NET_BONUS": "Rimborso spese",
+  "NET_INCOME": "Stipendio netto",
+  "PAYCHECK": "La tua busta paga",
+  "RESET": "Ricomincia",
+  "SALARY_CREDIT": "Detrazione da lavoro dipendente",
+  "SALARY_CREDIT_2": "Bonus Renzi",
+  "SOCIAL_TAX": "Contributo INPS",
+  "STATE_TAX": "Imposta sul reddito",
+  "SUBMIT": "Invia"
 }

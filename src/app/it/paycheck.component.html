@@ -2,7 +2,7 @@
 
   <div class="field">
     <label class="label">
-      {{'Gross income' | translate}}
+      {{'GROSS_INCOME' | translate}}
     </label>
     <div class="control">
       <input class="input is-info is-medium" type="number" formControlName="grossIncome">
@@ -11,7 +11,7 @@
 
   <div class="field">
     <label class="label">
-      {{'Additional salaries' | translate}}
+      {{'ADDITIONAL_SALARIES' | translate}}
     </label>
     <div class="control">
       <input class="slider tooltip is-fullwidth is-info is-medium" type="range" step="1" min="0" max="3" formControlName="additionalSalaries" [attr.data-tooltip]="form.value.additionalSalaries">
@@ -20,7 +20,7 @@
 
   <div class="field">
     <label class="label">
-      {{'Net bonus' | translate}}
+      {{'NET_BONUS' | translate}}
     </label>
     <div class="control">
       <input class="input is-info is-medium" type="number" formControlName="netBonus">
@@ -31,7 +31,7 @@
     <div class="control">
       <button class="button is-info is-medium is-fullwidth" type="submit">
         <i class="icon far fa-fw fa-file-alt"></i>
-        <strong>{{'Submit' | translate}}</strong>
+        <strong>{{'SUBMIT' | translate}}</strong>
       </button>
     </div>
   </div>
@@ -45,7 +45,7 @@
   <div class="level">
     <div class="level-item">
       <p class="title has-text-centered">
-        {{'Paycheck' | translate}}
+        {{'PAYCHECK' | translate}}
       </p>
     </div>
   </div>
@@ -54,7 +54,7 @@
     <div class="level-left">
       <div class="level-item">
         <p class="has-text-weight-bold">
-          {{'Gross income' | translate}}
+          {{'GROSS_INCOME' | translate}}
         </p>
       </div>
     </div>
@@ -107,7 +107,7 @@
     <div class="level-left">
       <div class="level-item">
         <p class="has-text-weight-bold">
-          {{'Net income' | translate}}
+          {{'NET_INCOME' | translate}}
         </p>
       </div>
     </div>
@@ -123,7 +123,7 @@
   <div class="level">
     <button class="button is-info is-medium is-fullwidth" (click)="onReset()">
       <i class="icon fas fa-fw fa-undo"></i>
-      <strong>{{'Restart' | translate}}</strong>
+      <strong>{{'RESET' | translate}}</strong>
     </button>
   </div>
 

@@ -1,3 +1,15 @@
 {
-  "Paycheck": "Your paycheck"
+  "ADDITIONAL_SALARIES": "Additional salaries",
+  "FEDERAL_TAX": "Federal tax",
+  "GROSS_INCOME": "Gross income",
+  "LOCAL_TAX": "Local tax",
+  "NET_BONUS": "Net bonus",
+  "NET_INCOME": "Net income",
+  "PAYCHECK": "Your paycheck",
+  "RESET": "Reset",
+  "SALARY_CREDIT": "Salary credit",
+  "SALARY_CREDIT_2": "Salary credit 2",
+  "SOCIAL_TAX": "Social tax",
+  "STATE_TAX": "State tax",
+  "SUBMIT": "Submit"
 }
