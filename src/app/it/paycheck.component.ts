@@ -57,13 +57,8 @@ export class PaycheckComponent implements OnInit {
 
   }
 
-  onReset() {
+  onBack() {
     this.paycheck$.next(null);
-    this.form.setValue({
-      additionalSalaries: 1,
-      grossIncome: 0,
-      netBonus: 0
-    });
   }
 
 }
