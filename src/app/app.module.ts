@@ -1,11 +1,11 @@
+import { registerLocaleData } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import localeEn from '@angular/common/locales/en';
+import localeIt from '@angular/common/locales/it';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { registerLocaleData } from '@angular/common';
-import localeIt from '@angular/common/locales/it';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
@@ -13,15 +13,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PaycheckComponent } from './it/paycheck.component';
 
-export function createTranslateLoader(httpClient: HttpClient) {
-  return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
-}
-
 @NgModule({
-  declarations: [
-    AppComponent,
-    PaycheckComponent
-  ],
   imports: [
     AppRoutingModule,
     BrowserModule,
@@ -29,29 +21,31 @@ export function createTranslateLoader(httpClient: HttpClient) {
     HttpClientModule,
     ReactiveFormsModule,
     TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
-        deps: [HttpClient]
-      }
+      loader: { provide: TranslateLoader, deps: [HttpClient], useFactory: (createTranslateLoader) }
     })
   ],
-  providers: [],
+  declarations: [
+    AppComponent,
+    PaycheckComponent
+  ],
+  providers: [
+    { provide: LOCALE_ID, deps: [TranslateService], useFactory: createLocaleId }
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
+export class AppModule {}
 
-  constructor(private translateService: TranslateService) {
-    registerLocaleData(localeIt);
-    this.registerTranslationData();
-  }
+export function createTranslateLoader(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
+}
 
-  private registerTranslationData() {
-    this.translateService.addLangs(['en', 'it']);
-    this.translateService.setDefaultLang('en');
-    const browserLang: string = this.translateService.getBrowserLang();
-    if (this.translateService.getLangs().includes(browserLang))
-      this.translateService.use(browserLang);
-  }
-
+export function createLocaleId(translateService: TranslateService) {
+  registerLocaleData(localeEn);
+  registerLocaleData(localeIt);
+  const defaultLang = 'en';
+  const supportedLangs = [defaultLang, 'it'];
+  const browserLang = translateService.getBrowserLang();
+  const langToUse = supportedLangs.includes(browserLang) ? browserLang : defaultLang;
+  translateService.use(langToUse);
+  return langToUse;
 }

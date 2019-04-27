@@ -27,13 +27,13 @@ export class PaycheckComponent implements OnInit {
   constructor(private paycheckService: PaycheckService) {}
 
   ngOnInit() {
-    this.loading$ = new Subject();
-    this.paycheck$ = new Subject();
     this.form = new FormGroup({
       additionalSalaries: new FormControl(1),
       grossIncome: new FormControl(0),
       netBonus: new FormControl(0)
     });
+    this.loading$ = new Subject();
+    this.paycheck$ = new Subject();
   }
 
   onSubmit() {
