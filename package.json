@@ -1,15 +1,14 @@
 {
   "name": "neat-app",
-  "version": "1.1.29",
+  "version": "1.1.30",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
     "serve": "ng serve",
-    "build": "ng build",
-    "test": "ng test --code-coverage",
+    "start": "node server.js",
+    "build": "ng build --prod",
+    "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "postinstall": "ng build --prod --output-path dist"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
