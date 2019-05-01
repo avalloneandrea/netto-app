@@ -2,7 +2,7 @@ import { query, transition, trigger, useAnimation } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Subject, timer } from 'rxjs';
-import { take, takeUntil } from 'rxjs/operators';
+import { finalize, take, takeUntil } from 'rxjs/operators';
 
 import { fadeIn } from '../domain/animations';
 import { Paycheck } from '../domain/paycheck';
@@ -40,7 +40,7 @@ export class PaycheckComponent implements OnInit {
 
     timer(1000).pipe(
       takeUntil(this.paycheck$)
-    ).subscribe(response => {
+    ).subscribe(() => {
       this.loading$.next(true);
     });
 
@@ -50,8 +50,8 @@ export class PaycheckComponent implements OnInit {
       this.form.value.netBonus
     ).pipe(
       take(1),
+      finalize(() => this.loading$.next(false))
     ).subscribe(paycheck => {
-      this.loading$.next(false);
       this.paycheck$.next(paycheck);
     });
 

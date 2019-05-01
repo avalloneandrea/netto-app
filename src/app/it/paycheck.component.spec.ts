@@ -66,8 +66,9 @@ describe('PaycheckComponent', () => {
     compiled.querySelector('button').click();
     tick(1000);
     fixture.detectChanges();
-    expect(compiled.querySelector('.pageloader')).toBeDefined();
+    expect(compiled.querySelector('.pageloader')).toHaveClass('is-active');
     tick(1000);
+    fixture.detectChanges();
   }));
 
   describe(`when the submit button has been clicked`, () => {
@@ -81,6 +82,10 @@ describe('PaycheckComponent', () => {
       }));
       compiled.querySelector('button').click();
       fixture.detectChanges();
+    });
+
+    it(`should dismiss the loading screen`, () => {
+      expect(compiled.querySelector('.pageloader')).not.toHaveClass('is-active');
     });
 
     it(`should display the title`, () => {
