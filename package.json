@@ -1,6 +1,6 @@
 {
   "name": "neat-app",
-  "version": "1.1.35",
+  "version": "1.1.36",
   "scripts": {
     "ng": "ng",
     "serve": "ng serve",
@@ -24,7 +24,7 @@
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
     "bulma": "^0.7.4",
-    "bulma-extensions": "<6.2.5",
+    "bulma-extensions": "^6.2.5",
     "core-js": "~2.6.5",
     "express": "^4.16.4",
     "rxjs": "^6.5.1",

@@ -5,7 +5,7 @@
       {{'GROSS_INCOME' | translate}}
     </label>
     <div class="control">
-      <input class="input is-info is-medium" type="number" inputmode="decimal" formControlName="grossIncome">
+      <input class="input is-info is-medium" type="number" inputMode="decimal" formControlName="grossIncome">
     </div>
   </div>
 
@@ -14,7 +14,7 @@
       {{'ADDITIONAL_SALARIES' | translate}}
     </label>
     <div class="control">
-      <input class="slider tooltip is-fullwidth is-info is-medium" type="range" step="1" min="0" max="3" formControlName="additionalSalaries" [attr.data-tooltip]="form.value.additionalSalaries">
+      <input class="input is-info is-medium" type="number" min="0" max="3" inputMode="numeric" formControlName="additionalSalaries">
     </div>
   </div>
 
@@ -23,7 +23,7 @@
       {{'NET_BONUS' | translate}}
     </label>
     <div class="control">
-      <input class="input is-info is-medium" type="number" inputmode="decimal" formControlName="netBonus">
+      <input class="input is-info is-medium" type="number" inputMode="decimal" formControlName="netBonus">
     </div>
   </div>
 
