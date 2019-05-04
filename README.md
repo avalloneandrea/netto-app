@@ -1,7 +1,7 @@
 [![Travis](https://img.shields.io/travis/com/avalloneandrea/neat-app.svg)](https://travis-ci.com/avalloneandrea/neat-app)
-[![Coveralls](https://img.shields.io/coveralls/github/avalloneandrea/neat-app.svg)](https://coveralls.io/github/avalloneandrea/neat-app?branch=master)
+[![Coveralls](https://img.shields.io/coveralls/github/avalloneandrea/neat-app.svg)](https://coveralls.io/github/avalloneandrea/neat-app)
+[![Heroku](https://img.shields.io/badge/deploy-active-brightgreen.svg)](https://github.com/avalloneandrea/neat-app/deployments)
 [![License](https://img.shields.io/github/license/avalloneandrea/neat-app.svg?color=bright)](https://github.com/avalloneandrea/neat-app/blob/master/LICENSE)
-[![Website](https://img.shields.io/website/https/neatapp.herokuapp.com.svg)](https://neatapp.herokuapp.com)
 
 # Neat (App)
 
