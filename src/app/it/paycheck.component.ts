@@ -1,8 +1,8 @@
 import { query, transition, trigger, useAnimation } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Subject, timer } from 'rxjs';
-import { finalize, take, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { finalize, take } from 'rxjs/operators';
 
 import { fadeIn } from '../domain/animations';
 import { Paycheck } from '../domain/paycheck';
@@ -21,7 +21,6 @@ import { PaycheckService } from './paycheck.service';
 export class PaycheckComponent implements OnInit {
 
   form: FormGroup;
-  loading$: Subject<boolean>;
   paycheck$: Subject<Paycheck>;
 
   constructor(private paycheckService: PaycheckService) {}
@@ -32,29 +31,21 @@ export class PaycheckComponent implements OnInit {
       grossIncome: new FormControl(0),
       netBonus: new FormControl(0)
     });
-    this.loading$ = new Subject();
     this.paycheck$ = new Subject();
   }
 
   onSubmit() {
-
-    timer(1000).pipe(
-      takeUntil(this.paycheck$)
-    ).subscribe(() => {
-      this.loading$.next(true);
-    });
-
+    this.form.disable();
     this.paycheckService.getPaycheck(
       this.form.value.additionalSalaries,
       this.form.value.grossIncome,
       this.form.value.netBonus
     ).pipe(
       take(1),
-      finalize(() => this.loading$.next(false))
+      finalize(() => this.form.enable())
     ).subscribe(paycheck => {
       this.paycheck$.next(paycheck);
     });
-
   }
 
   onBack() {

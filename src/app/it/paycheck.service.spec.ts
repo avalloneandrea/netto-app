@@ -29,19 +29,19 @@ describe('PaycheckService', () => {
     expect(service).toBeDefined();
   });
 
-  it('should get the paycheck given the additional salaries', () => {
+  it('should return the paycheck given the additional salaries', () => {
     service.getPaycheck(1).subscribe();
     const request = backend.expectOne(`${environment.basePath}/it/paycheck?additionalSalaries=1`);
     expect(request).toBeDefined();
   });
 
-  it('should get the paycheck given the gross income', () => {
+  it('should return the paycheck given the gross income', () => {
     service.getPaycheck(null, 20000).subscribe();
     const request = backend.expectOne(`${environment.basePath}/it/paycheck?grossIncome=20000`);
     expect(request).toBeDefined();
   });
 
-  it('should get the paycheck given the net bonus', () => {
+  it('should return the paycheck given the net bonus', () => {
     service.getPaycheck(null, null, 600).subscribe();
     const request = backend.expectOne(`${environment.basePath}/it/paycheck?netBonus=600`);
     expect(request).toBeDefined();

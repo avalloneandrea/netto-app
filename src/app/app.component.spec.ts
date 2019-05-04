@@ -27,11 +27,13 @@ describe('AppComponent', () => {
     expect(component).toBeDefined();
   });
 
-  it('should display the header', () => {
-    expect(compiled.querySelector('img').alt).toContain('Neat');
+  it('should render the header', () => {
+    const element = compiled.querySelector('img');
+    expect(element.src).toContain('logo');
+    expect(element.alt).toContain('Neat');
   });
 
-  it('should display the footer', () => {
+  it('should render the footer', () => {
     const element = compiled.querySelector('footer');
     expect(element.textContent).toContain('Neat');
     expect(element.textContent).toContain('Andrea Avallone');
