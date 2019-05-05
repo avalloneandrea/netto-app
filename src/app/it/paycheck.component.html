@@ -14,7 +14,7 @@
       {{'ADDITIONAL_SALARIES' | translate}}
     </label>
     <div class="control">
-      <input class="input is-info is-medium" type="number" min="0" max="3" inputMode="numeric" formControlName="additionalSalaries">
+      <input class="slider tooltip is-fullwidth is-info is-medium" type="range" step="1" min="0" max="3" formControlName="additionalSalaries" [attr.data-tooltip]="form.value.additionalSalaries">
     </div>
   </div>
 
