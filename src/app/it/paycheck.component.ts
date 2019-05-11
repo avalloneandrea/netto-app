@@ -14,7 +14,7 @@ import { PaycheckService } from './paycheck.service';
   styleUrls: ['./paycheck.component.scss'],
   animations: [trigger('animate', [
     transition(':enter',
-      query('.field, .level',
+      query('.panel > *',
         useAnimation(fadeIn)))
   ])]
 })

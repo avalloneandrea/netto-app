@@ -40,89 +40,91 @@
 
 <div class="panel" *ngIf="paycheck$ | async as paycheck" [@animate]="paycheck$">
 
-  <div class="level">
-    <div class="level-item">
-      <p class="title has-text-centered">
+  <div class="columns has-text-centered">
+    <div class="column">
+      <p class="title">
         {{'PAYCHECK' | translate}}
       </p>
     </div>
   </div>
 
-  <div class="level">
-    <div class="level-left">
-      <div class="level-item">
-        <p class="has-text-weight-bold">
-          {{'GROSS_INCOME' | translate}}
-        </p>
-      </div>
+  <div class="columns has-text-centered-mobile">
+    <div class="column">
+      <p class="has-text-weight-bold">
+        {{'GROSS_INCOME' | translate}}
+      </p>
+      <p class="help">
+        {{'GROSS_INCOME_HELP' | translate}}
+      </p>
     </div>
-    <div class="level-right">
-      <div class="level-item">
-        <p class="has-text-success">
-          {{paycheck?.grossIncome | number:'1.2-2'}} €
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="level" *ngFor="let tax of paycheck?.taxes">
-    <div class="level-left">
-      <div class="level-item">
-        <p class="has-text-weight-bold">
-          {{tax?.code | translate}}
-        </p>
-      </div>
-    </div>
-    <div class="level-right">
-      <div class="level-item">
-        <p class="has-text-danger">
-          - {{tax.value | number:'1.2-2'}} €
-        </p>
-      </div>
+    <div class="column is-narrow">
+      <p class="has-text-success">
+        {{paycheck?.grossIncome | number:'1.2-2'}} €
+      </p>
     </div>
   </div>
 
-  <div class="level" *ngFor="let credit of paycheck?.credits">
-    <div class="level-left">
-      <div class="level-item">
-        <p class="has-text-weight-bold">
-          {{credit?.code | translate}}
-        </p>
-      </div>
+  <div class="columns has-text-centered-mobile" *ngFor="let tax of paycheck?.taxes">
+    <div class="column">
+      <p class="has-text-weight-bold">
+        {{tax?.code | translate}}
+      </p>
+      <p class="help">
+        {{tax?.code + '_HELP' | translate}}
+      </p>
     </div>
-    <div class="level-right">
-      <div class="level-item">
-        <p class="has-text-success">
-          + {{credit.value | number:'1.2-2'}} €
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="level is-divider"></div>
-
-  <div class="level">
-    <div class="level-left">
-      <div class="level-item">
-        <p class="has-text-weight-bold">
-          {{'NET_INCOME' | translate}}
-        </p>
-      </div>
-    </div>
-    <div class="level-right">
-      <div class="level-item">
-        <p class="has-text-success">
-          {{paycheck?.netIncome | number:'1.2-2'}} €
-        </p>
-      </div>
+    <div class="column is-narrow">
+      <p class="has-text-danger">
+        - {{tax.value | number:'1.2-2'}} €
+      </p>
     </div>
   </div>
 
-  <div class="level">
-    <button class="button is-info is-medium is-fullwidth" (click)="onBack()">
-      <i class="icon fas fa-fw fa-chevron-left"></i>
-      <strong>{{'BACK' | translate}}</strong>
-    </button>
+  <div class="columns has-text-centered-mobile" *ngFor="let credit of paycheck?.credits">
+    <div class="column">
+      <p class="has-text-weight-bold">
+        {{credit?.code | translate}}
+      </p>
+      <p class="help">
+        {{credit?.code + '_HELP' | translate}}
+      </p>
+    </div>
+    <div class="column is-narrow">
+      <p class="has-text-success">
+        + {{credit.value | number:'1.2-2'}} €
+      </p>
+    </div>
+  </div>
+
+  <div class="columns has-text-centered">
+    <div class="column">
+      <div class="is-divider is-marginless"></div>
+    </div>
+  </div>
+
+  <div class="columns has-text-centered-mobile">
+    <div class="column">
+      <p class="has-text-weight-bold">
+        {{'NET_INCOME' | translate}}
+      </p>
+      <p class="help">
+        {{'NET_INCOME_HELP' | translate}}
+      </p>
+    </div>
+    <div class="column is-narrow">
+      <p class="has-text-info">
+        {{paycheck?.netIncome | number:'1.2-2'}} €
+      </p>
+    </div>
+  </div>
+
+  <div class="columns has-text-centered-mobile">
+    <div class="column">
+      <button class="button is-info is-medium is-fullwidth" (click)="onBack()">
+        <i class="icon fas fa-fw fa-chevron-left"></i>
+        <strong>{{'BACK' | translate}}</strong>
+      </button>
+    </div>
   </div>
 
 </div>

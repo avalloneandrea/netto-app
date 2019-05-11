@@ -85,27 +85,27 @@ describe('PaycheckComponent', () => {
     });
 
     it('should display the gross income', () => {
-      const element = compiled.querySelectorAll('.level')[1];
-      expect(element.querySelector('.level-left').textContent).toContain('GROSS_INCOME');
-      expect(element.querySelector('.level-right').textContent).toContain('1,500.00');
+      const element = compiled.querySelectorAll('.columns')[1];
+      expect(element.querySelectorAll('.column')[0].textContent).toContain('GROSS_INCOME');
+      expect(element.querySelectorAll('.column')[1].textContent).toContain('1,500.00');
     });
 
     it('should display the tax', () => {
-      const element = compiled.querySelectorAll('.level')[2];
-      expect(element.querySelector('.level-left').textContent).toContain('TAX');
-      expect(element.querySelector('.level-right').textContent).toContain('- 300.00');
+      const element = compiled.querySelectorAll('.columns')[2];
+      expect(element.querySelectorAll('.column')[0].textContent).toContain('TAX');
+      expect(element.querySelectorAll('.column')[1].textContent).toContain('- 300.00');
     });
 
     it('should display the credit', () => {
-      const element = compiled.querySelectorAll('.level')[3];
-      expect(element.querySelector('.level-left').textContent).toContain('CREDIT');
-      expect(element.querySelector('.level-right').textContent).toContain('+ 100.00');
+      const element = compiled.querySelectorAll('.columns')[3];
+      expect(element.querySelectorAll('.column')[0].textContent).toContain('CREDIT');
+      expect(element.querySelectorAll('.column')[1].textContent).toContain('+ 100.00');
     });
 
     it('should display the net income', () => {
-      const element = compiled.querySelectorAll('.level')[5];
-      expect(element.querySelector('.level-left').textContent).toContain('NET_INCOME');
-      expect(element.querySelector('.level-right').textContent).toContain('1,200.00');
+      const element = compiled.querySelectorAll('.columns')[5];
+      expect(element.querySelectorAll('.column')[0].textContent).toContain('NET_INCOME');
+      expect(element.querySelectorAll('.column')[1].textContent).toContain('1,200.00');
     });
 
     it('should display the back button', () => {
