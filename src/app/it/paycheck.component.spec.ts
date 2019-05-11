@@ -42,7 +42,8 @@ describe('PaycheckComponent', () => {
   it('should display the gross income element', () => {
     const element = compiled.querySelectorAll('.field')[0];
     expect(element.querySelector('label').textContent).toContain('GROSS_INCOME');
-    expect(element.querySelector('input').value).toBe('0');
+    expect(element.querySelector('input').value).toBe('');
+    expect(element.querySelector('input').placeholder).toContain('0');
   });
 
   it('should display the additional salaries element', () => {
@@ -54,7 +55,8 @@ describe('PaycheckComponent', () => {
   it('should display the net bonus element', () => {
     const element = compiled.querySelectorAll('.field')[2];
     expect(element.querySelector('label').textContent).toContain('NET_BONUS');
-    expect(element.querySelector('input').value).toBe('0');
+    expect(element.querySelector('input').value).toBe('');
+    expect(element.querySelector('input').placeholder).toContain('0');
   });
 
   it('should display the submit button', () => {
@@ -126,7 +128,8 @@ describe('PaycheckComponent', () => {
       it('should display the gross income element', () => {
         const element = compiled.querySelectorAll('.field')[0];
         expect(element.querySelector('label').textContent).toContain('GROSS_INCOME');
-        expect(element.querySelector('input').value).toBe('0');
+        expect(element.querySelector('input').value).toBe('');
+        expect(element.querySelector('input').placeholder).toContain('0');
       });
 
       it('should display the additional salaries element', () => {
@@ -138,7 +141,8 @@ describe('PaycheckComponent', () => {
       it('should display the net bonus element', () => {
         const element = compiled.querySelectorAll('.field')[2];
         expect(element.querySelector('label').textContent).toContain('NET_BONUS');
-        expect(element.querySelector('input').value).toBe('0');
+        expect(element.querySelector('input').value).toBe('');
+        expect(element.querySelector('input').placeholder).toContain('0');
       });
 
       it('should display the submit button', () => {
