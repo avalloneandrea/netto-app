@@ -28,8 +28,8 @@ export class PaycheckComponent implements OnInit {
   ngOnInit() {
     this.form = new FormGroup({
       additionalSalaries: new FormControl(1),
-      grossIncome: new FormControl(0),
-      netBonus: new FormControl(0)
+      grossIncome: new FormControl(),
+      netBonus: new FormControl()
     });
     this.paycheck$ = new Subject();
   }
