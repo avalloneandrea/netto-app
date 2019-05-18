@@ -4,8 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { PaycheckComponent } from './it/paycheck.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/it', pathMatch: 'full' },
-  { path: 'it', component: PaycheckComponent }
+  { path: 'it', component: PaycheckComponent },
+  { path: '**', redirectTo: '/it', pathMatch: 'full' }
 ];
 
 @NgModule({
