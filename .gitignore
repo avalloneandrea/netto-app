@@ -92,7 +92,7 @@ fabric.properties
 # JetBrains templates
 **___jb_tmp___
 
-### Intellij Patch ###
+# Intellij Patch #
 *.iml
 modules.xml
 .idea/misc.xml
