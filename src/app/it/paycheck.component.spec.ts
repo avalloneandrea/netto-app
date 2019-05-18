@@ -46,10 +46,10 @@ describe('PaycheckComponent', () => {
     expect(element.querySelector('input').placeholder).toContain('0');
   });
 
-  it('should display the additional salaries element', () => {
+  it('should display the num of salaries element', () => {
     const element = compiled.querySelectorAll('.field')[1];
-    expect(element.querySelector('label').textContent).toContain('ADDITIONAL_SALARIES');
-    expect(element.querySelector('input').value).toBe('1');
+    expect(element.querySelector('label').textContent).toContain('NUM_OF_SALARIES');
+    expect(element.querySelector('select').value).toBe('1');
   });
 
   it('should display the net bonus element', () => {
@@ -132,10 +132,10 @@ describe('PaycheckComponent', () => {
         expect(element.querySelector('input').placeholder).toContain('0');
       });
 
-      it('should display the additional salaries element', () => {
+      it('should display the num of salaries element', () => {
         const element = compiled.querySelectorAll('.field')[1];
-        expect(element.querySelector('label').textContent).toContain('ADDITIONAL_SALARIES');
-        expect(element.querySelector('input').value).toBe('1');
+        expect(element.querySelector('label').textContent).toContain('NUM_OF_SALARIES');
+        expect(element.querySelector('select').value).toBe('1');
       });
 
       it('should display the net bonus element', () => {

@@ -1,5 +1,4 @@
 {
-  "ADDITIONAL_SALARIES": "Mensilità aggiuntive",
   "BACK": "Torna indietro",
   "FEDERAL_TAX": "Addizionale regionale",
   "FEDERAL_TAX_HELP": "Tassa fissa di importo pari al 2,03% della base imponibile",
@@ -11,7 +10,9 @@
   "NET_BONUS_HELP": "Bonus mensile esentasse",
   "NET_INCOME": "Stipendio netto",
   "NET_INCOME_HELP": "Retribuzione mensile al netto di tasse e detrazioni",
+  "NUM_OF_SALARIES": "Numero di mensilità",
   "PAYCHECK": "La tua busta paga",
+  "SALARIES": "Mensilità",
   "SALARY_CREDIT": "Detrazione da lavoro dipendente",
   "SALARY_CREDIT_HELP": "Detrazione progressiva calcolata su basi imponibili fino a 55.000 €",
   "SALARY_CREDIT_2": "Bonus Renzi",
