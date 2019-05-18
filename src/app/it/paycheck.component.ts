@@ -44,11 +44,13 @@ export class PaycheckComponent implements OnInit {
       take(1),
       finalize(() => this.form.enable())
     ).subscribe(paycheck => {
+      window.scroll(0, 0);
       this.paycheck$.next(paycheck);
     });
   }
 
   onBack() {
+    window.scroll(0, 0);
     this.paycheck$.next(null);
   }
 
