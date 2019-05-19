@@ -102,6 +102,7 @@ modules.xml
 # Sonarlint plugin
 .idea/sonarlint
 
+
 ### macOS ###
 
 # General
