@@ -26,7 +26,7 @@ testem.log
 /e2e/*.js
 /e2e/*.map
 
-### Intellij ###
+### IntelliJ ###
 
 # User-specific stuff
 .idea/**/workspace.xml
@@ -66,6 +66,7 @@ cmake-build-*/
 *.iws
 
 # IntelliJ
+.idea/
 out/
 
 # mpeltonen/sbt-idea plugin
@@ -92,7 +93,7 @@ fabric.properties
 # JetBrains templates
 **___jb_tmp___
 
-# Intellij Patch #
+# IntelliJ Patch #
 *.iml
 modules.xml
 .idea/misc.xml
@@ -104,6 +105,7 @@ modules.xml
 ### macOS ###
 
 # General
+.DS_Store
 .AppleDouble
 .LSOverride
 
