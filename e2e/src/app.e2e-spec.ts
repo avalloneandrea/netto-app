@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('Neat App', () => {
+describe('Netto App', () => {
 
   let page: AppPage;
 

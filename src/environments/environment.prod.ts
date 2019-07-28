@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  basePath: 'https://neatapi.herokuapp.com'
+  basePath: 'https://nettoapi.herokuapp.com'
 };

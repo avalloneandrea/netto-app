@@ -42,20 +42,20 @@ describe('PaycheckComponent', () => {
   it('should display the gross income element', () => {
     const element = compiled.querySelectorAll('.field')[0];
     expect(element.querySelector('label').textContent).toContain('GROSS_INCOME');
-    expect(element.querySelector('input').value).toBe('');
+    expect(element.querySelector('input').value).toEqual('');
     expect(element.querySelector('input').placeholder).toContain('0');
   });
 
   it('should display the num of salaries element', () => {
     const element = compiled.querySelectorAll('.field')[1];
     expect(element.querySelector('label').textContent).toContain('NUM_OF_SALARIES');
-    expect(element.querySelector('select').value).toBe('1');
+    expect(element.querySelector('select').value).toEqual('1');
   });
 
   it('should display the net bonus element', () => {
     const element = compiled.querySelectorAll('.field')[2];
     expect(element.querySelector('label').textContent).toContain('NET_BONUS');
-    expect(element.querySelector('input').value).toBe('');
+    expect(element.querySelector('input').value).toEqual('');
     expect(element.querySelector('input').placeholder).toContain('0');
   });
 
@@ -128,20 +128,20 @@ describe('PaycheckComponent', () => {
       it('should display the gross income element', () => {
         const element = compiled.querySelectorAll('.field')[0];
         expect(element.querySelector('label').textContent).toContain('GROSS_INCOME');
-        expect(element.querySelector('input').value).toBe('');
+        expect(element.querySelector('input').value).toEqual('');
         expect(element.querySelector('input').placeholder).toContain('0');
       });
 
       it('should display the num of salaries element', () => {
         const element = compiled.querySelectorAll('.field')[1];
         expect(element.querySelector('label').textContent).toContain('NUM_OF_SALARIES');
-        expect(element.querySelector('select').value).toBe('1');
+        expect(element.querySelector('select').value).toEqual('1');
       });
 
       it('should display the net bonus element', () => {
         const element = compiled.querySelectorAll('.field')[2];
         expect(element.querySelector('label').textContent).toContain('NET_BONUS');
-        expect(element.querySelector('input').value).toBe('');
+        expect(element.querySelector('input').value).toEqual('');
         expect(element.querySelector('input').placeholder).toContain('0');
       });
 
