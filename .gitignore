@@ -26,6 +26,7 @@ testem.log
 /e2e/*.js
 /e2e/*.map
 
+
 ### IntelliJ ###
 
 # User-specific stuff
