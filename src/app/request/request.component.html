@@ -1,0 +1,48 @@
+<form class="block" [formGroup]="form" (ngSubmit)="onSubmit()" [@animate]>
+
+  <div class="field">
+    <label class="label">
+      {{'GROSS_INCOME' | translate}}
+    </label>
+    <div class="control has-icons-right">
+      <input class="input is-info is-medium" type="number" placeholder="0" inputMode="decimal" formControlName="grossIncome">
+      <i class="icon fas fa-fw fa-euro-sign is-right has-text-info"></i>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">
+      {{'NUM_OF_SALARIES' | translate}}
+    </label>
+    <div class="control">
+      <div class="select is-info is-medium is-fullwidth">
+        <select formControlName="additionalSalaries">
+          <option value="0">12 {{"SALARIES" | translate | lowercase}}</option>
+          <option value="1">13 {{"SALARIES" | translate | lowercase}}</option>
+          <option value="2">14 {{"SALARIES" | translate | lowercase}}</option>
+          <option value="3">15 {{"SALARIES" | translate | lowercase}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">
+      {{'NET_BONUS' | translate}}
+    </label>
+    <div class="control has-icons-right">
+      <input class="input is-info is-medium" type="number" placeholder="0" inputMode="decimal" formControlName="netBonus">
+      <i class="icon fas fa-fw fa-euro-sign is-right has-text-info"></i>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <button class="button is-info is-medium is-fullwidth" type="submit" [class.is-loading]="form.disabled">
+        <i class="icon far fa-fw fa-file-alt"></i>
+        <strong>{{'SUBMIT' | translate}}</strong>
+      </button>
+    </div>
+  </div>
+
+</form>

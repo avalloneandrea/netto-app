@@ -11,7 +11,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { PaycheckComponent } from './it/paycheck.component';
+import { RequestComponent } from './request/request.component';
+import { ResponseComponent } from './response/response.component';
 
 @NgModule({
   imports: [
@@ -21,29 +22,30 @@ import { PaycheckComponent } from './it/paycheck.component';
     HttpClientModule,
     ReactiveFormsModule,
     TranslateModule.forRoot({
-      loader: { provide: TranslateLoader, deps: [HttpClient], useFactory: (createTranslateLoader) }
+      loader: { provide: TranslateLoader, deps: [ HttpClient ], useFactory: (createTranslateLoader) }
     })
   ],
   declarations: [
     AppComponent,
-    PaycheckComponent
+    RequestComponent,
+    ResponseComponent
   ],
   providers: [
-    { provide: LOCALE_ID, deps: [TranslateService], useFactory: createLocaleId }
+    { provide: LOCALE_ID, deps: [ TranslateService ], useFactory: createLocaleId }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule {}
 
-export function createTranslateLoader(httpClient: HttpClient) {
+export function createTranslateLoader(httpClient: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
 }
 
-export function createLocaleId(translateService: TranslateService) {
+export function createLocaleId(translateService: TranslateService): string {
   registerLocaleData(localeEn);
   registerLocaleData(localeIt);
   const defaultLang = 'en';
-  const supportedLangs = [defaultLang, 'it'];
+  const supportedLangs = [ defaultLang, 'it' ];
   const browserLang = translateService.getBrowserLang();
   const langToUse = supportedLangs.includes(browserLang) ? browserLang : defaultLang;
   translateService.use(langToUse);

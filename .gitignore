@@ -12,6 +12,7 @@
 
 # IDEs and editors
 /.idea
+/.run
 
 # misc
 /.sass-cache

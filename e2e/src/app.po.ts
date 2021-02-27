@@ -1,24 +1,24 @@
-import { browser, by, element } from 'protractor';
+import { browser, by, element, ElementFinder } from 'protractor';
 
 export class AppPage {
 
-  navigateTo() {
+  navigateTo(): Promise<any> {
     return browser.get(browser.baseUrl) as Promise<any>;
   }
 
-  getHeader() {
+  getHeader(): ElementFinder {
     return element(by.css('.navbar'));
   }
 
-  getBody() {
+  getBody(): ElementFinder {
     return element(by.css('.hero'));
   }
 
-  getFooter() {
+  getFooter(): ElementFinder {
     return element(by.css('.footer'));
   }
 
-  getButton() {
+  getButton(): ElementFinder {
     return element(by.css('.button'));
   }
 
