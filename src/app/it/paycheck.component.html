@@ -1,4 +1,4 @@
-<form class="panel" [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="!(paycheck$ | async)" [@animate]="paycheck$">
+<form class="block" [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="!(paycheck$ | async)" [@animate]="paycheck$">
 
   <div class="field">
     <label class="label">
@@ -47,7 +47,7 @@
 
 </form>
 
-<div class="panel" *ngIf="paycheck$ | async as paycheck" [@animate]="paycheck$">
+<div class="block" *ngIf="paycheck$ | async as paycheck" [@animate]="paycheck$">
 
   <div class="columns has-text-centered">
     <div class="column">

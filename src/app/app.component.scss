@@ -1,10 +1,10 @@
 @import "../../node_modules/bulma/sass/utilities/initial-variables.sass";
 
+.container {
+  max-width: 480px;
+}
+
 footer, footer * {
   background-color: $cyan;
   color: $white;
-}
-
-.container {
-  max-width: 480px;
 }
