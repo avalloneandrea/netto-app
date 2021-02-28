@@ -16,7 +16,7 @@ export class AppComponent {
   constructor(private service: PaycheckService) {
     this.service.getPaycheck({})
       .pipe(take(1))
-      .subscribe(() => console.log('API is active'));
+      .subscribe();
   }
 
 }
