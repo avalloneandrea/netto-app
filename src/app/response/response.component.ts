@@ -1,6 +1,6 @@
 import { query, transition, trigger, useAnimation } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { fadeIn } from '../domain/animations';
 import { Paycheck } from '../domain/paycheck';

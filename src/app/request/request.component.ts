@@ -1,9 +1,9 @@
 import { query, transition, trigger, useAnimation } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { fadeIn } from '../domain/animations';
-import { Router } from "@angular/router";
 
 @Component({
   selector: 'request',

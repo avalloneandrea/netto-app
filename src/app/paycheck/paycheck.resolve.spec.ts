@@ -1,16 +1,44 @@
-// import { TestBed } from '@angular/core/testing';
-//
-// import { Paycheck.ResolveService } from './paycheck.resolve.service';
-//
-// describe('Paycheck.ResolveService', () => {
-//   let service: Paycheck.ResolveService;
-//
-//   beforeEach(() => {
-//     TestBed.configureTestingModule({});
-//     service = TestBed.inject(Paycheck.ResolveService);
-//   });
-//
-//   it('should be created', () => {
-//     expect(service).toBeTruthy();
-//   });
-// });
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
+import { ActivatedRouteSnapshot } from '@angular/router';
+
+import { environment } from '../../environments/environment';
+import { PaycheckResolve } from './paycheck.resolve';
+
+describe('PaycheckResolve', () => {
+
+  let resolve: PaycheckResolve;
+  let backend: HttpTestingController;
+
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        HttpClientModule,
+        HttpClientTestingModule
+      ],
+      providers: [ PaycheckResolve ]
+    }).compileComponents();
+  }));
+
+  beforeEach(() => {
+    resolve = TestBed.inject(PaycheckResolve);
+    backend = TestBed.inject(HttpTestingController);
+  });
+
+  it('should create the resolve', () => {
+    expect(resolve).toBeDefined();
+  });
+
+  it('should resolve the request', () => {
+    const queryParams: any = {
+      grossIncome: 20000,
+      additionalSalaries: 1,
+      netBonus: 600
+    }
+    resolve.resolve({ queryParams } as ActivatedRouteSnapshot, null).subscribe();
+    const request = backend.expectOne(`${ environment.basePath }/it/paycheck?grossIncome=20000&additionalSalaries=1&netBonus=600`);
+    expect(request).toBeDefined();
+  });
+
+});
