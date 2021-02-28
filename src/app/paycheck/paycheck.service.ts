@@ -19,7 +19,7 @@ export class PaycheckService {
       .set('netBonus', netBonus as any);
     const headers = new HttpHeaders()
       .set('Accept', [ 'application/json' ]);
-    return this.httpClient.get(`${ environment.basePath }/it/paycheck`, { params, headers });
+    return this.httpClient.get(`${ environment.basePath }/paycheck`, { params, headers });
   }
 
 }

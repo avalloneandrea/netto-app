@@ -35,9 +35,9 @@ describe('PaycheckResolve', () => {
       grossIncome: 20000,
       additionalSalaries: 1,
       netBonus: 600
-    }
+    };
     resolve.resolve({ queryParams } as ActivatedRouteSnapshot, null).subscribe();
-    const request = backend.expectOne(`${ environment.basePath }/it/paycheck?grossIncome=20000&additionalSalaries=1&netBonus=600`);
+    const request = backend.expectOne(`${ environment.basePath }/paycheck?grossIncome=20000&additionalSalaries=1&netBonus=600`);
     expect(request).toBeDefined();
   });
 
