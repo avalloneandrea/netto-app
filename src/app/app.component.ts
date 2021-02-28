@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { take } from 'rxjs/operators';
 
 import { version } from '../../package.json';
+import { PaycheckService } from './paycheck/paycheck.service';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +12,11 @@ import { version } from '../../package.json';
 export class AppComponent {
 
   appVersion: string = version;
+
+  constructor(private service: PaycheckService) {
+    this.service.getPaycheck({})
+      .pipe(take(1))
+      .subscribe(() => console.log('API is active'));
+  }
 
 }
