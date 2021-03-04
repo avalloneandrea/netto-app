@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { take } from 'rxjs/operators';
 
-import { PaycheckService } from './paycheck-service/paycheck.service';
 import { version } from '../../package.json';
 
 @Component({
@@ -12,11 +10,5 @@ import { version } from '../../package.json';
 export class AppComponent {
 
   appVersion: string = version;
-
-  constructor(private service: PaycheckService) {
-    this.service.getPaycheck({})
-      .pipe(take(1))
-      .subscribe();
-  }
 
 }
