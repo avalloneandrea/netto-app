@@ -5,12 +5,12 @@ import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { RequestComponent } from './request.component';
+import { PaycheckFormComponent } from './paycheck-form.component';
 
 describe('RequestComponent', () => {
 
-  let fixture: ComponentFixture<RequestComponent>;
-  let component: RequestComponent;
+  let fixture: ComponentFixture<PaycheckFormComponent>;
+  let component: PaycheckFormComponent;
   let compiled: HTMLElement;
 
   beforeEach(waitForAsync(() => {
@@ -21,12 +21,12 @@ describe('RequestComponent', () => {
         RouterTestingModule,
         TranslateModule.forRoot(),
       ],
-      declarations: [ RequestComponent ]
+      declarations: [ PaycheckFormComponent ]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RequestComponent);
+    fixture = TestBed.createComponent(PaycheckFormComponent);
     component = fixture.componentInstance;
     compiled = fixture.debugElement.nativeElement;
     fixture.detectChanges();

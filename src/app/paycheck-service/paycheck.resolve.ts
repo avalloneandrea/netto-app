@@ -3,8 +3,8 @@ import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/r
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 
-import { Paycheck } from '../domain/paycheck';
 import { PaycheckService } from './paycheck.service';
+import { Paycheck } from '../domain/paycheck';
 
 @Injectable({
   providedIn: 'root'

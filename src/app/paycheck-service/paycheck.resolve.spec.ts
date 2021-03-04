@@ -3,8 +3,8 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { ActivatedRouteSnapshot } from '@angular/router';
 
-import { environment } from '../../environments/environment';
 import { PaycheckResolve } from './paycheck.resolve';
+import { environment } from '../../environments/environment';
 
 describe('PaycheckResolve', () => {
 

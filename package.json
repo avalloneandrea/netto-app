@@ -1,6 +1,6 @@
 {
   "name": "netto-app",
-  "version": "1.4.10",
+  "version": "1.4.11",
   "scripts": {
     "ng": "ng",
     "serve": "ng serve",

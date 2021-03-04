@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { take } from 'rxjs/operators';
 
+import { PaycheckService } from './paycheck-service/paycheck.service';
 import { version } from '../../package.json';
-import { PaycheckService } from './paycheck/paycheck.service';
 
 @Component({
   selector: 'app-root',

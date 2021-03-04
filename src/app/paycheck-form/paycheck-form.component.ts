@@ -6,16 +6,16 @@ import { Router } from '@angular/router';
 import { fadeIn } from '../domain/animations';
 
 @Component({
-  selector: 'request',
-  templateUrl: './request.component.html',
-  styleUrls: [ './request.component.scss' ],
+  selector: 'paycheck-form',
+  templateUrl: './paycheck-form.component.html',
+  styleUrls: ['./paycheck-form.component.scss'],
   animations: [ trigger('animate', [
     transition(':enter',
       query('.block > *',
         useAnimation(fadeIn)))
   ]) ]
 })
-export class RequestComponent implements OnInit {
+export class PaycheckFormComponent implements OnInit {
 
   form: FormGroup;
 

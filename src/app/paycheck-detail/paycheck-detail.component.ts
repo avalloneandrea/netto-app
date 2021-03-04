@@ -6,16 +6,16 @@ import { fadeIn } from '../domain/animations';
 import { Paycheck } from '../domain/paycheck';
 
 @Component({
-  selector: 'response',
-  templateUrl: './response.component.html',
-  styleUrls: [ './response.component.scss' ],
+  selector: 'paycheck-detail',
+  templateUrl: './paycheck-detail.component.html',
+  styleUrls: [ './paycheck-detail.component.scss' ],
   animations: [ trigger('animate', [
     transition(':enter',
       query('.block > *',
         useAnimation(fadeIn)))
   ]) ]
 })
-export class ResponseComponent implements OnInit {
+export class PaycheckDetailComponent implements OnInit {
 
   paycheck: Paycheck;
 

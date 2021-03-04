@@ -5,13 +5,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
 
+import { PaycheckDetailComponent } from './paycheck-detail.component';
 import { Paycheck } from '../domain/paycheck';
-import { ResponseComponent } from './response.component';
 
 describe('ResponseComponent', () => {
 
-  let fixture: ComponentFixture<ResponseComponent>;
-  let component: ResponseComponent;
+  let fixture: ComponentFixture<PaycheckDetailComponent>;
+  let component: PaycheckDetailComponent;
   let compiled: HTMLElement;
 
   beforeEach(waitForAsync(() => {
@@ -26,11 +26,11 @@ describe('ResponseComponent', () => {
         NoopAnimationsModule,
         ReactiveFormsModule,
         RouterTestingModule.withRoutes([
-          { path: '**', component: ResponseComponent },
+          { path: '**', component: PaycheckDetailComponent },
         ]),
         TranslateModule.forRoot(),
       ],
-      declarations: [ ResponseComponent ],
+      declarations: [ PaycheckDetailComponent ],
       providers: [ {
         provide: ActivatedRoute,
         useValue: { snapshot: { data: { paycheck } } }
@@ -39,7 +39,7 @@ describe('ResponseComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ResponseComponent);
+    fixture = TestBed.createComponent(PaycheckDetailComponent);
     component = fixture.componentInstance;
     compiled = fixture.debugElement.nativeElement;
     fixture.detectChanges();
