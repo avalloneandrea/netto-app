@@ -5,8 +5,8 @@
       {{'GROSS_INCOME' | translate}}
     </label>
     <div class="control has-icons-right">
-      <input class="input is-info is-medium" type="number" placeholder="0" inputMode="decimal" formControlName="grossIncome">
-      <i class="icon fas fa-fw fa-euro-sign is-right has-text-info"></i>
+      <input class="input is-primary is-medium" type="number" placeholder="0" inputMode="decimal" formControlName="grossIncome">
+      <i class="icon fas fa-fw fa-euro-sign is-right has-text-primary"></i>
     </div>
   </div>
 
@@ -15,7 +15,7 @@
       {{'NUM_OF_SALARIES' | translate}}
     </label>
     <div class="control">
-      <div class="select is-info is-medium is-fullwidth">
+      <div class="select is-primary is-medium is-fullwidth">
         <select formControlName="additionalSalaries">
           <option value="0">12 {{"SALARIES" | translate | lowercase}}</option>
           <option value="1">13 {{"SALARIES" | translate | lowercase}}</option>
@@ -31,8 +31,8 @@
       {{'NET_BONUS' | translate}}
     </label>
     <div class="control has-icons-right">
-      <input class="input is-info is-medium" type="number" placeholder="0" inputMode="decimal" formControlName="netBonus">
-      <i class="icon fas fa-fw fa-euro-sign is-right has-text-info"></i>
+      <input class="input is-primary is-medium" type="number" placeholder="0" inputMode="decimal" formControlName="netBonus">
+      <i class="icon fas fa-fw fa-euro-sign is-right has-text-primary"></i>
     </div>
   </div>
 
@@ -41,7 +41,7 @@
       &nbsp;
     </label>
     <div class="control">
-      <button class="button is-info is-medium is-fullwidth" type="submit" [class.is-loading]="form.disabled">
+      <button class="button is-primary is-medium is-fullwidth" type="submit" [class.is-loading]="form.disabled">
         <i class="icon far fa-fw fa-file-alt"></i>
         <strong>{{'SUBMIT' | translate}}</strong>
       </button>
