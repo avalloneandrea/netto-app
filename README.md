@@ -1,5 +1,5 @@
-[![Travis](https://img.shields.io/travis/com/avalloneandrea/netto-app.svg)](https://travis-ci.com/avalloneandrea/netto-app)
-[![Coveralls](https://img.shields.io/coveralls/github/avalloneandrea/netto-app.svg)](https://coveralls.io/github/avalloneandrea/netto-app)
+[![Build](https://github.com/avalloneandrea/netto-app/actions/workflows/build.yml/badge.svg)](https://github.com/avalloneandrea/netto-app/actions/workflows/build.yml)
+[![Codecov](https://codecov.io/gh/avalloneandrea/netto-app/branch/master/graph/badge.svg?token=WSZ0K2PT8T)](https://codecov.io/gh/avalloneandrea/netto-app)
 [![Heroku](https://img.shields.io/badge/deploy-active-brightgreen.svg)](https://github.com/avalloneandrea/netto-app/deployments)
 [![License](https://img.shields.io/github/license/avalloneandrea/netto-app.svg?color=bright)](https://github.com/avalloneandrea/netto-app/blob/master/LICENSE)
 
