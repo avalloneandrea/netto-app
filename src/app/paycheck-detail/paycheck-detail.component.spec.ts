@@ -1,47 +1,39 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { ReactiveFormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ActivatedRoute, Router } from '@angular/router';
-import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { PaycheckDetailComponent } from './paycheck-detail.component';
-import { Paycheck } from '../domain/paycheck';
+import createSpyObj = jasmine.createSpyObj;
 
-describe('ResponseComponent', () => {
+describe('PaycheckDetailComponent', () => {
 
   let fixture: ComponentFixture<PaycheckDetailComponent>;
   let component: PaycheckDetailComponent;
-  let compiled: HTMLElement;
+  let element: HTMLElement;
 
   beforeEach(waitForAsync(() => {
-    const paycheck: Paycheck = {
-      grossIncome: 1500,
-      taxes: [ { code: 'TAX', value: 400 } ],
-      credits: [ { code: 'CREDIT', value: 100 } ],
-      netIncome: 1200
-    };
     TestBed.configureTestingModule({
       imports: [
         NoopAnimationsModule,
-        ReactiveFormsModule,
-        RouterTestingModule.withRoutes([
-          { path: '**', component: PaycheckDetailComponent },
-        ]),
+        RouterTestingModule,
         TranslateModule.forRoot(),
       ],
       declarations: [ PaycheckDetailComponent ],
-      providers: [ {
-        provide: ActivatedRoute,
-        useValue: { snapshot: { data: { paycheck } } }
-      } ],
     }).compileComponents();
   }));
 
   beforeEach(() => {
+    TestBed.inject(ActivatedRoute).snapshot.data['paycheck'] = createSpyObj('Paycheck', {}, {
+      grossIncome: 1500,
+      taxes: [ { code: 'TAX', value: 200 } ],
+      credits: [ { code: 'CREDIT', value: 100 } ],
+      netIncome: 1200
+    });
     fixture = TestBed.createComponent(PaycheckDetailComponent);
     component = fixture.componentInstance;
-    compiled = fixture.debugElement.nativeElement;
+    element = fixture.nativeElement;
     fixture.detectChanges();
   });
 
@@ -50,53 +42,58 @@ describe('ResponseComponent', () => {
   });
 
   it('should display the title', () => {
-    expect(compiled.querySelector('.title').textContent).toContain('PAYCHECK');
+    expect(element.querySelector('.title').textContent).toContain('PAYCHECK');
   });
 
   it('should display the gross income', () => {
-    const element = compiled.querySelectorAll('.columns')[1];
-    expect(element.querySelectorAll('p')[0].textContent).toContain('GROSS_INCOME');
-    expect(element.querySelectorAll('p')[1].textContent).toContain('GROSS_INCOME_HELP');
-    expect(element.querySelectorAll('p')[2].textContent).toContain('1,500.00');
+    const column = element.querySelectorAll('.columns')[1];
+    expect(column.querySelectorAll('p')[0].textContent).toContain('GROSS_INCOME');
+    expect(column.querySelectorAll('p')[1].textContent).toContain('GROSS_INCOME_HELP');
+    expect(column.querySelectorAll('p')[2].textContent).toContain('1,500.00');
   });
 
   it('should display the taxes', () => {
-    const element = compiled.querySelectorAll('.columns')[2];
-    expect(element.querySelectorAll('p')[0].textContent).toContain('TAX');
-    expect(element.querySelectorAll('p')[1].textContent).toContain('TAX_HELP');
-    expect(element.querySelectorAll('p')[2].textContent).toContain('- 400.00');
+    const column = element.querySelectorAll('.columns')[2];
+    expect(column.querySelectorAll('p')[0].textContent).toContain('TAX');
+    expect(column.querySelectorAll('p')[1].textContent).toContain('TAX_HELP');
+    expect(column.querySelectorAll('p')[2].textContent).toContain('- 200.00');
   });
 
   it('should display the credits', () => {
-    const element = compiled.querySelectorAll('.columns')[3];
-    expect(element.querySelectorAll('p')[0].textContent).toContain('CREDIT');
-    expect(element.querySelectorAll('p')[1].textContent).toContain('CREDIT_HELP');
-    expect(element.querySelectorAll('p')[2].textContent).toContain('+ 100.00');
+    const column = element.querySelectorAll('.columns')[3];
+    expect(column.querySelectorAll('p')[0].textContent).toContain('CREDIT');
+    expect(column.querySelectorAll('p')[1].textContent).toContain('CREDIT_HELP');
+    expect(column.querySelectorAll('p')[2].textContent).toContain('+ 100.00');
+  });
+
+  it('should display the horizontal rule', () => {
+    const column = element.querySelectorAll('.columns')[4];
+    expect(column.querySelector('hr')).toBeDefined();
   });
 
   it('should display the net income', () => {
-    const element = compiled.querySelectorAll('.columns')[4];
-    expect(element.querySelectorAll('p')[0].textContent).toContain('NET_INCOME');
-    expect(element.querySelectorAll('p')[1].textContent).toContain('NET_INCOME_HELP');
-    expect(element.querySelectorAll('p')[2].textContent).toContain('1,200.00');
+    const column = element.querySelectorAll('.columns')[5];
+    expect(column.querySelectorAll('p')[0].textContent).toContain('NET_INCOME');
+    expect(column.querySelectorAll('p')[1].textContent).toContain('NET_INCOME_HELP');
+    expect(column.querySelectorAll('p')[2].textContent).toContain('1,200.00');
   });
 
   it('should display the back button', () => {
-    expect(compiled.querySelector('button').textContent).toContain('BACK');
+    expect(element.querySelector('button').textContent).toContain('BACK');
   });
 
   describe('when the back button has been clicked', () => {
 
-    let navigateMethod;
+    let router;
 
     beforeEach(() => {
-      navigateMethod = spyOn(TestBed.inject(Router), 'navigate');
-      compiled.querySelector('button').click();
+      router = spyOn(TestBed.inject(Router), 'navigate');
+      element.querySelector('button').click();
       fixture.detectChanges();
     });
 
     it('should trigger the navigation', () => {
-      expect(navigateMethod).toHaveBeenCalled();
+      expect(router).toHaveBeenCalledTimes(1);
     });
 
   });

@@ -1,29 +1,27 @@
-import { HttpClientModule } from '@angular/common/http';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed, waitForAsync } from '@angular/core/testing';
-import { ActivatedRouteSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { of } from 'rxjs';
 
 import { PaycheckResolve } from './paycheck.resolve';
-import { environment } from '../../environments/environment';
+import { PaycheckService } from './paycheck.service';
+import Spy = jasmine.Spy;
 
 describe('PaycheckResolve', () => {
 
   let resolve: PaycheckResolve;
-  let backend: HttpTestingController;
+  let service: Spy;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientModule,
-        HttpClientTestingModule
-      ],
-      providers: [ PaycheckResolve ]
+      imports: [ HttpClientTestingModule ],
     }).compileComponents();
   }));
 
   beforeEach(() => {
     resolve = TestBed.inject(PaycheckResolve);
-    backend = TestBed.inject(HttpTestingController);
+    service = spyOn(TestBed.inject(PaycheckService), 'getPaycheck')
+      .and.returnValue(of({}));
   });
 
   it('should create the resolve', () => {
@@ -31,14 +29,8 @@ describe('PaycheckResolve', () => {
   });
 
   it('should resolve the request', () => {
-    const queryParams: any = {
-      grossIncome: 20000,
-      additionalSalaries: 1,
-      netBonus: 600
-    };
-    resolve.resolve({ queryParams } as ActivatedRouteSnapshot, null).subscribe();
-    const request = backend.expectOne(`${ environment.basePath }/paycheck?grossIncome=20000&additionalSalaries=1&netBonus=600`);
-    expect(request).toBeDefined();
+    resolve.resolve(<ActivatedRouteSnapshot>{ queryParams: {} }, <RouterStateSnapshot>{});
+    expect(service).toHaveBeenCalledTimes(1);
   });
 
 });

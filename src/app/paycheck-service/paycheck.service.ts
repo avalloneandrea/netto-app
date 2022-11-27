@@ -10,16 +10,16 @@ import { environment } from '../../environments/environment';
 })
 export class PaycheckService {
 
-  constructor(protected httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) {}
 
   getPaycheck({ grossIncome = 0, additionalSalaries = 0, netBonus = 0 }): Observable<Paycheck> {
     const params = new HttpParams()
-      .set('grossIncome', grossIncome as any)
-      .set('additionalSalaries', additionalSalaries as any)
-      .set('netBonus', netBonus as any);
+      .set('grossIncome', grossIncome)
+      .set('additionalSalaries', additionalSalaries)
+      .set('netBonus', netBonus);
     const headers = new HttpHeaders()
       .set('Accept', [ 'application/json' ]);
-    return this.httpClient.get(`${ environment.basePath }/paycheck`, { params, headers });
+    return this.httpClient.get(`${environment.apiUrl}/paycheck`, { params, headers });
   }
 
 }

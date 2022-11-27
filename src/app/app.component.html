@@ -1,4 +1,4 @@
-<nav class="navbar is-primary is-spaced">
+<nav class="navbar is-fixed-top is-primary is-spaced has-shadow">
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
       <img src="assets/images/logo-inverted.png" alt="Netto">
@@ -6,7 +6,7 @@
   </div>
 </nav>
 
-<section class="hero is-light is-fullheight">
+<section class="hero is-fullheight">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <router-outlet></router-outlet>
@@ -14,9 +14,9 @@
   </div>
 </section>
 
-<footer class="footer is-primary">
+<footer class="footer">
   <div class="content has-text-centered">
-    <a class="has-text-white" href="https://github.com/avalloneandrea/netto-app"><strong>Netto</strong> {{appVersion}} by Andrea Avallone</a><br>
+    <a class="has-text-white" href="https://github.com/avalloneandrea/netto-app">Netto {{appVersion}} by Andrea Avallone</a><br>
     <a class="has-text-white" href="https://github.com/avalloneandrea/netto-app/blob/master/LICENSE">Netto is licensed under the MIT License</a>
   </div>
 </footer>

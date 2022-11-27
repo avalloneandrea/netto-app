@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  basePath: 'https://nettoapi.herokuapp.com'
+  apiUrl: 'https://nettoapi.herokuapp.com'
 };

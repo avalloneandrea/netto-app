@@ -1,28 +1,34 @@
 ### Angular ###
 
 # compiled output
-/dist
-/tmp
-/app/**/*.js
-/app/**/*.js.map
+dist/
+tmp/
+app/**/*.js
+app/**/*.js.map
 
 # dependencies
-/node_modules
-/bower_components
+node_modules/
+bower_components/
 
 # IDEs and editors
-/.idea
-/.run
+.idea/
 
 # misc
-.angular
-/.sass-cache
-/connect.lock
-/coverage/*
-/libpeerconnection.log
+.sass-cache/
+connect.lock/
+coverage/
+libpeerconnection.log/
 npm-debug.log
 testem.log
-/typings
+typings/
+.angular/
+
+# e2e
+e2e/*.js
+e2e/*.map
+
+# System Files
+.DS_Store/
 
 
 ### IntelliJ ###
@@ -33,6 +39,9 @@ testem.log
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+
+# AWS User-specific
+.idea/**/aws.xml
 
 # Generated files
 .idea/**/contentModel.xml
@@ -51,9 +60,14 @@ testem.log
 .idea/**/libraries
 
 # Gradle and Maven with auto-import
+.idea/artifacts
+.idea/compiler.xml
+.idea/jarRepositories.xml
 .idea/modules.xml
 .idea/*.iml
 .idea/modules
+*.iml
+*.ipr
 
 # CMake
 cmake-build-*/
@@ -65,7 +79,6 @@ cmake-build-*/
 *.iws
 
 # IntelliJ
-.idea/
 out/
 
 # mpeltonen/sbt-idea plugin
@@ -76,6 +89,9 @@ atlassian-ide-plugin.xml
 
 # Cursive Clojure plugin
 .idea/replstate.xml
+
+# SonarLint plugin
+.idea/sonarlint/
 
 # Crashlytics plugin (for Android Studio and IntelliJ)
 com_crashlytics_export_strings.xml
@@ -89,17 +105,25 @@ fabric.properties
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
 
-# JetBrains templates
-**___jb_tmp___
-
-# IntelliJ Patch #
-*.iml
-modules.xml
-.idea/misc.xml
-*.ipr
-
 # Sonarlint plugin
-.idea/sonarlint
+.idea/**/sonarlint/
+
+# SonarQube Plugin
+.idea/**/sonarIssues.xml
+
+# Markdown Navigator plugin
+.idea/**/markdown-navigator.xml
+.idea/**/markdown-navigator-enh.xml
+.idea/**/markdown-navigator/
+
+# Cache file creation bug
+.idea/$CACHE_FILE$
+
+# CodeStream plugin
+.idea/codestream.xml
+
+# Azure Toolkit for IntelliJ plugin
+.idea/**/azureSettings.xml
 
 
 ### macOS ###
@@ -130,3 +154,6 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# iCloud generated files
+*.icloud

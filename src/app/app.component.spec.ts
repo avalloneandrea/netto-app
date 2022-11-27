@@ -1,5 +1,3 @@
-import { HttpClientModule } from '@angular/common/http';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -9,10 +7,11 @@ describe('AppComponent', () => {
 
   let fixture: ComponentFixture<AppComponent>;
   let component: AppComponent;
-  let compiled: HTMLElement;
+  let element: HTMLElement;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
+      imports: [ RouterTestingModule ],
       declarations: [ AppComponent ]
     }).compileComponents();
   }));
@@ -20,8 +19,8 @@ describe('AppComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.componentInstance;
+    element = fixture.nativeElement;
     fixture.detectChanges();
-    compiled = fixture.debugElement.nativeElement;
   });
 
   it('should create the component', () => {
@@ -29,16 +28,16 @@ describe('AppComponent', () => {
   });
 
   it('should display the header', () => {
-    const element = compiled.querySelector('img');
-    expect(element.src).toContain('logo');
-    expect(element.alt).toContain('Netto');
+    const header = element.querySelector('img');
+    expect(header.src).toContain('logo');
+    expect(header.alt).toContain('Netto');
   });
 
   it('should display the footer', () => {
-    const element = compiled.querySelector('footer');
-    expect(element.textContent).toContain('Netto');
-    expect(element.textContent).toContain('Andrea Avallone');
-    expect(element.textContent).toContain('MIT License');
+    const footer = element.querySelector('footer');
+    expect(footer.textContent).toContain('Netto');
+    expect(footer.textContent).toContain('Andrea Avallone');
+    expect(footer.textContent).toContain('MIT License');
   });
 
 });

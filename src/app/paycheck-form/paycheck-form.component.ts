@@ -1,31 +1,29 @@
 import { query, transition, trigger, useAnimation } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { fadeIn } from '../domain/animations';
+import { fadeIn } from '../app-animations';
 
 @Component({
   selector: 'paycheck-form',
   templateUrl: './paycheck-form.component.html',
-  styleUrls: ['./paycheck-form.component.scss'],
+  styleUrls: [ './paycheck-form.component.scss' ],
   animations: [ trigger('animate', [
     transition(':enter',
-      query('.block > *',
+      query('.field',
         useAnimation(fadeIn)))
   ]) ]
 })
-export class PaycheckFormComponent implements OnInit {
+export class PaycheckFormComponent {
 
   form: FormGroup;
 
-  constructor(private router: Router) {}
-
-  ngOnInit(): void {
-    this.form = new FormGroup({
-      additionalSalaries: new FormControl(1),
-      grossIncome: new FormControl(),
-      netBonus: new FormControl()
+  constructor(private formBuilder: FormBuilder, private router: Router) {
+    this.form = this.formBuilder.group({
+      grossIncome: [ 0 ],
+      additionalSalaries: [ 1 ],
+      netBonus: [ 0 ]
     });
   }
 

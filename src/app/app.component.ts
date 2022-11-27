@@ -9,6 +9,10 @@ import packageInfo from '../../package.json';
 })
 export class AppComponent {
 
-  appVersion: string = packageInfo.version;
+  appVersion: string;
+
+  constructor() {
+    this.appVersion = packageInfo.version;
+  }
 
 }

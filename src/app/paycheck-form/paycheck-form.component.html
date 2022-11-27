@@ -1,12 +1,14 @@
-<form class="block" [formGroup]="form" (ngSubmit)="onSubmit()" [@animate]>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" @animate>
 
   <div class="field">
     <label class="label">
       {{'GROSS_INCOME' | translate}}
     </label>
     <div class="control has-icons-right">
-      <input class="input is-primary is-medium" type="number" placeholder="0" inputMode="decimal" formControlName="grossIncome">
-      <i class="icon fas fa-fw fa-euro-sign is-right has-text-primary"></i>
+      <input class="input is-primary is-medium" formControlName="grossIncome" type="number" inputMode="decimal" step="1000">
+      <span class="icon is-right has-text-primary">
+        <i class="fas fa-fw fa-euro-sign"></i>
+      </span>
     </div>
   </div>
 
@@ -31,8 +33,10 @@
       {{'NET_BONUS' | translate}}
     </label>
     <div class="control has-icons-right">
-      <input class="input is-primary is-medium" type="number" placeholder="0" inputMode="decimal" formControlName="netBonus">
-      <i class="icon fas fa-fw fa-euro-sign is-right has-text-primary"></i>
+      <input class="input is-primary is-medium" formControlName="netBonus" type="number" inputMode="decimal" step="100">
+      <span class="icon is-right has-text-primary">
+        <i class="fas fa-fw fa-euro-sign"></i>
+      </span>
     </div>
   </div>
 
@@ -42,7 +46,9 @@
     </label>
     <div class="control">
       <button class="button is-primary is-medium is-fullwidth" type="submit" [class.is-loading]="form.disabled">
-        <i class="icon far fa-fw fa-file-alt"></i>
+        <span class="icon">
+          <i class="far fa-fw fa-file-alt"></i>
+        </span>
         <strong>{{'SUBMIT' | translate}}</strong>
       </button>
     </div>
