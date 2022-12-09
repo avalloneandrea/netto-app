@@ -6,16 +6,16 @@ import { fadeIn } from '../app-animations';
 import { Paycheck } from '../domain/paycheck';
 
 @Component({
-  selector: 'paycheck-detail',
-  templateUrl: './paycheck-detail.component.html',
-  styleUrls: [ './paycheck-detail.component.scss' ],
+  selector: 'paycheck-viewer',
+  templateUrl: './paycheck-viewer.component.html',
+  styleUrls: [ './paycheck-viewer.component.scss' ],
   animations: [ trigger('animate', [
     transition(':enter',
       query('.columns',
         useAnimation(fadeIn)))
   ]) ]
 })
-export class PaycheckDetailComponent {
+export class PaycheckViewerComponent {
 
   paycheck?: Paycheck;
 

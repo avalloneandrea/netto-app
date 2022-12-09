@@ -4,12 +4,12 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { PaycheckFormComponent } from './paycheck-form.component';
+import { PaycheckDashboardComponent } from './paycheck-dashboard.component';
 
-describe('PaycheckFormComponent', () => {
+describe('PaycheckDashboardComponent', () => {
 
-  let fixture: ComponentFixture<PaycheckFormComponent>;
-  let component: PaycheckFormComponent;
+  let fixture: ComponentFixture<PaycheckDashboardComponent>;
+  let component: PaycheckDashboardComponent;
   let element: HTMLElement;
 
   beforeEach(waitForAsync(() => {
@@ -19,12 +19,12 @@ describe('PaycheckFormComponent', () => {
         ReactiveFormsModule,
         TranslateModule.forRoot(),
       ],
-      declarations: [ PaycheckFormComponent ]
+      declarations: [ PaycheckDashboardComponent ]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PaycheckFormComponent);
+    fixture = TestBed.createComponent(PaycheckDashboardComponent);
     component = fixture.componentInstance;
     element = fixture.nativeElement;
     fixture.detectChanges();

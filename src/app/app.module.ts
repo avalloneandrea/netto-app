@@ -11,8 +11,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { PaycheckFormComponent } from './paycheck-form/paycheck-form.component';
-import { PaycheckDetailComponent } from './paycheck-detail/paycheck-detail.component';
+import { PaycheckDashboardComponent } from './paycheck-dashboard/paycheck-dashboard.component';
+import { PaycheckViewerComponent } from './paycheck-viewer/paycheck-viewer.component';
 
 @NgModule({
   imports: [
@@ -27,8 +27,8 @@ import { PaycheckDetailComponent } from './paycheck-detail/paycheck-detail.compo
   ],
   declarations: [
     AppComponent,
-    PaycheckFormComponent,
-    PaycheckDetailComponent
+    PaycheckDashboardComponent,
+    PaycheckViewerComponent
   ],
   providers: [
     { provide: LOCALE_ID, deps: [ TranslateService ], useFactory: createLocaleId }

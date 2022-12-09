@@ -6,16 +6,16 @@ import { Router } from '@angular/router';
 import { fadeIn } from '../app-animations';
 
 @Component({
-  selector: 'paycheck-form',
-  templateUrl: './paycheck-form.component.html',
-  styleUrls: [ './paycheck-form.component.scss' ],
+  selector: 'paycheck-dashboard',
+  templateUrl: './paycheck-dashboard.component.html',
+  styleUrls: [ './paycheck-dashboard.component.scss' ],
   animations: [ trigger('animate', [
     transition(':enter',
       query('.field',
         useAnimation(fadeIn)))
   ]) ]
 })
-export class PaycheckFormComponent {
+export class PaycheckDashboardComponent {
 
   form: FormGroup;
 

@@ -4,13 +4,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { PaycheckDetailComponent } from './paycheck-detail.component';
+import { PaycheckViewerComponent } from './paycheck-viewer.component';
 import createSpyObj = jasmine.createSpyObj;
 
-describe('PaycheckDetailComponent', () => {
+describe('PaycheckViewerComponent', () => {
 
-  let fixture: ComponentFixture<PaycheckDetailComponent>;
-  let component: PaycheckDetailComponent;
+  let fixture: ComponentFixture<PaycheckViewerComponent>;
+  let component: PaycheckViewerComponent;
   let element: HTMLElement;
 
   beforeEach(waitForAsync(() => {
@@ -20,7 +20,7 @@ describe('PaycheckDetailComponent', () => {
         RouterTestingModule,
         TranslateModule.forRoot(),
       ],
-      declarations: [ PaycheckDetailComponent ],
+      declarations: [ PaycheckViewerComponent ],
     }).compileComponents();
   }));
 
@@ -31,7 +31,7 @@ describe('PaycheckDetailComponent', () => {
       credits: [ { code: 'CREDIT', value: 100 } ],
       netIncome: 1200
     });
-    fixture = TestBed.createComponent(PaycheckDetailComponent);
+    fixture = TestBed.createComponent(PaycheckViewerComponent);
     component = fixture.componentInstance;
     element = fixture.nativeElement;
     fixture.detectChanges();
