@@ -24,7 +24,7 @@ export class PaycheckViewerComponent {
   }
 
   onBack(): void {
-    this.router.navigate([ '' ]);
+    this.router.navigate([ 'paycheck-dashboard' ], { queryParams: this.route.snapshot.queryParams });
   }
 
 }

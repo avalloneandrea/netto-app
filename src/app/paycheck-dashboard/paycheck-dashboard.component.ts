@@ -1,7 +1,7 @@
 import { query, transition, trigger, useAnimation } from '@angular/animations';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { fadeIn } from '../app-animations';
 
@@ -19,17 +19,18 @@ export class PaycheckDashboardComponent {
 
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(private route: ActivatedRoute, private formBuilder: FormBuilder, private router: Router) {
+    const queryParams = this.route.snapshot.queryParams;
     this.form = this.formBuilder.group({
-      grossIncome: [ 0 ],
-      additionalSalaries: [ 1 ],
-      netBonus: [ 0 ]
+      grossIncome: [ queryParams['grossIncome'] ],
+      additionalSalaries: [ queryParams['additionalSalaries'] || 1 ],
+      netBonus: [ queryParams['netBonus'] ]
     });
   }
 
   onSubmit(): void {
     this.form.disable();
-    this.router.navigate([ 'paycheck' ], { queryParams: this.form.value });
+    this.router.navigate([ 'paycheck-viewer' ], { queryParams: this.form.value });
   }
 
 }

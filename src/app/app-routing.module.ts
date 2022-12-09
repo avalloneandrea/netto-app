@@ -6,9 +6,9 @@ import { PaycheckViewerComponent } from './paycheck-viewer/paycheck-viewer.compo
 import { PaycheckResolve } from './paycheck-service/paycheck.resolve';
 
 const routes: Routes = [
-  { path: '', component: PaycheckDashboardComponent },
-  { path: 'paycheck', component: PaycheckViewerComponent, resolve: { paycheck: PaycheckResolve } },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  { path: 'paycheck-dashboard', component: PaycheckDashboardComponent },
+  { path: 'paycheck-viewer', component: PaycheckViewerComponent, resolve: { paycheck: PaycheckResolve } },
+  { path: '**', redirectTo: 'paycheck-dashboard', pathMatch: 'full' }
 ];
 
 @NgModule({
