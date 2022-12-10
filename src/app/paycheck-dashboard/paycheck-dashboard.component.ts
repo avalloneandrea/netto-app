@@ -24,7 +24,7 @@ export class PaycheckDashboardComponent {
     this.form = this.formBuilder.group({
       grossIncome: [ queryParams['grossIncome'] ],
       additionalSalaries: [ queryParams['additionalSalaries'] || 1 ],
-      netBonus: [ queryParams['netBonus'] ]
+      netAllowance: [ queryParams['netAllowance'] ]
     });
   }
 

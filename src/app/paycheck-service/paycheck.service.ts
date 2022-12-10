@@ -12,11 +12,11 @@ export class PaycheckService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getPaycheck({ grossIncome = 0, additionalSalaries = 0, netBonus = 0 }): Observable<Paycheck> {
+  getPaycheck({ grossIncome = 0, additionalSalaries = 0, netAllowance = 0 }): Observable<Paycheck> {
     const params = new HttpParams()
       .set('grossIncome', grossIncome)
       .set('additionalSalaries', additionalSalaries)
-      .set('netBonus', netBonus);
+      .set('netAllowance', netAllowance);
     const headers = new HttpHeaders()
       .set('Accept', [ 'application/json' ]);
     return this.httpClient.get(`${environment.apiUrl}/paycheck`, { params, headers });

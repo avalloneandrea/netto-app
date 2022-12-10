@@ -26,19 +26,19 @@ describe('PaycheckService', () => {
 
   it('should return the paycheck given the gross income', () => {
     service.getPaycheck({ grossIncome: 20000 }).subscribe();
-    const request = http.expectOne(`${environment.apiUrl}/paycheck?grossIncome=20000&additionalSalaries=0&netBonus=0`);
+    const request = http.expectOne(`${environment.apiUrl}/paycheck?grossIncome=20000&additionalSalaries=0&netAllowance=0`);
     expect(request.request.method).toEqual('GET');
   });
 
   it('should return the paycheck given the additional salaries', () => {
     service.getPaycheck({ additionalSalaries: 1 }).subscribe();
-    const request = http.expectOne(`${environment.apiUrl}/paycheck?grossIncome=0&additionalSalaries=1&netBonus=0`);
+    const request = http.expectOne(`${environment.apiUrl}/paycheck?grossIncome=0&additionalSalaries=1&netAllowance=0`);
     expect(request.request.method).toEqual('GET');
   });
 
-  it('should return the paycheck given the net bonus', () => {
-    service.getPaycheck({ netBonus: 500 }).subscribe();
-    const request = http.expectOne(`${environment.apiUrl}/paycheck?grossIncome=0&additionalSalaries=0&netBonus=500`);
+  it('should return the paycheck given the net allowance', () => {
+    service.getPaycheck({ netAllowance: 100 }).subscribe();
+    const request = http.expectOne(`${environment.apiUrl}/paycheck?grossIncome=0&additionalSalaries=0&netAllowance=100`);
     expect(request.request.method).toEqual('GET');
   });
 

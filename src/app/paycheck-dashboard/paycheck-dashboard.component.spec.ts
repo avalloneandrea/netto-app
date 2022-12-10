@@ -37,7 +37,7 @@ describe('PaycheckDashboardComponent', () => {
     expect(component).toBeDefined();
     expect(component.form.value.grossIncome).toBeNull();
     expect(component.form.value.additionalSalaries).toEqual(1);
-    expect(component.form.value.netBonus).toBeNull();
+    expect(component.form.value.netAllowance).toBeNull();
   });
 
   it('should display the gross income field', () => {
@@ -52,9 +52,9 @@ describe('PaycheckDashboardComponent', () => {
     expect(field.querySelector('select').value).toEqual('1');
   });
 
-  it('should display the net bonus field', () => {
+  it('should display the net allowance field', () => {
     const field = element.querySelectorAll('.field')[2];
-    expect(field.querySelector('label').textContent).toContain('NET_BONUS');
+    expect(field.querySelector('label').textContent).toContain('NET_ALLOWANCE');
     expect(field.querySelector('input').placeholder).toEqual('0');
   });
 
@@ -87,7 +87,7 @@ describe('PaycheckDashboardComponent', () => {
     beforeEach(() => {
       TestBed.inject(ActivatedRoute).snapshot.queryParams = createSpyObj('queryParams', {}, {
         grossIncome: 20000,
-        netBonus: 500
+        netAllowance: 100
       });
       fixture = TestBed.createComponent(PaycheckDashboardComponent);
       component = fixture.componentInstance;
@@ -101,10 +101,10 @@ describe('PaycheckDashboardComponent', () => {
       expect(field.querySelector('input').value).toEqual('20000');
     });
 
-    it('should display the net bonus field', () => {
+    it('should display the net allowance field', () => {
       const field = element.querySelectorAll('.field')[2];
-      expect(field.querySelector('label').textContent).toContain('NET_BONUS');
-      expect(field.querySelector('input').value).toEqual('500');
+      expect(field.querySelector('label').textContent).toContain('NET_ALLOWANCE');
+      expect(field.querySelector('input').value).toEqual('100');
     });
 
   });
