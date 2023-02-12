@@ -1,57 +1,51 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()" @animate>
+<div @animate class="container is-max-desktop">
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
 
-  <div class="field">
-    <label class="label">
-      {{'GROSS_INCOME' | translate}}
-    </label>
-    <div class="control has-icons-right">
-      <input class="input is-primary is-medium" formControlName="grossIncome" type="number" inputMode="decimal" placeholder="0" step="1000">
-      <span class="icon is-right has-text-primary">
-        <i class="fas fa-fw fa-euro-sign"></i>
-      </span>
-    </div>
-  </div>
-
-  <div class="field">
-    <label class="label">
-      {{'NUM_OF_SALARIES' | translate}}
-    </label>
-    <div class="control">
-      <div class="select is-primary is-medium is-fullwidth">
-        <select formControlName="additionalSalaries">
-          <option value="0">12 {{"SALARIES" | translate | lowercase}}</option>
-          <option value="1">13 {{"SALARIES" | translate | lowercase}}</option>
-          <option value="2">14 {{"SALARIES" | translate | lowercase}}</option>
-          <option value="3">15 {{"SALARIES" | translate | lowercase}}</option>
-        </select>
+    <div class="field">
+      <label class="label">{{'GROSS_INCOME' | translate}}</label>
+      <div class="control has-icons-right">
+        <input class="input is-primary is-medium" formControlName="grossIncome" inputMode="decimal" placeholder="0" step="1000" type="number">
+        <span class="icon is-right has-text-primary">
+          <i class="fas fa-fw fa-euro-sign"></i>
+        </span>
       </div>
     </div>
-  </div>
 
-  <div class="field">
-    <label class="label">
-      {{'NET_ALLOWANCE' | translate}}
-    </label>
-    <div class="control has-icons-right">
-      <input class="input is-primary is-medium" formControlName="netAllowance" type="number" inputMode="decimal" placeholder="0" step="100">
-      <span class="icon is-right has-text-primary">
-        <i class="fas fa-fw fa-euro-sign"></i>
-      </span>
+    <div class="field">
+      <label class="label">{{'NUM_OF_SALARIES' | translate}}</label>
+      <div class="control">
+        <div class="select is-primary is-medium is-fullwidth">
+          <select formControlName="additionalSalaries">
+            <option value="0">12 {{"SALARIES" | translate | lowercase}}</option>
+            <option value="1">13 {{"SALARIES" | translate | lowercase}}</option>
+            <option value="2">14 {{"SALARIES" | translate | lowercase}}</option>
+            <option value="3">15 {{"SALARIES" | translate | lowercase}}</option>
+          </select>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="field">
-    <label class="label">
-      &nbsp;
-    </label>
-    <div class="control">
-      <button class="button is-primary is-medium is-fullwidth" type="submit" [class.is-loading]="form.disabled">
-        <span class="icon">
-          <i class="far fa-fw fa-file-alt"></i>
+    <div class="field">
+      <label class="label">{{'NET_ALLOWANCE' | translate}}</label>
+      <div class="control has-icons-right">
+        <input class="input is-primary is-medium" formControlName="netAllowance" inputMode="decimal" placeholder="0" step="100" type="number">
+        <span class="icon is-right has-text-primary">
+          <i class="fas fa-fw fa-euro-sign"></i>
         </span>
-        <strong>{{'SUBMIT' | translate}}</strong>
-      </button>
+      </div>
     </div>
-  </div>
 
-</form>
+    <div class="field">
+      <label class="label">&nbsp;</label>
+      <div class="control">
+        <button [class.is-loading]="form.disabled" class="button is-primary is-medium is-fullwidth" type="submit">
+          <span class="icon">
+            <i class="far fa-fw fa-file-alt"></i>
+          </span>
+          <strong>{{'SUBMIT' | translate}}</strong>
+        </button>
+      </div>
+    </div>
+
+  </form>
+</div>

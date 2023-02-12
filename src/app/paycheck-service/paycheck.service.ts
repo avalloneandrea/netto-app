@@ -1,13 +1,10 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
-import { Paycheck } from '../domain/paycheck';
 import { environment } from '../../environments/environment';
+import { Paycheck } from '../core/paycheck';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class PaycheckService {
 
   constructor(private httpClient: HttpClient) {}

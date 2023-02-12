@@ -1,86 +1,60 @@
-<div [@animate]>
+<div @animate class="container is-max-desktop">
 
   <div class="columns has-text-centered">
     <div class="column">
-      <p class="title">
-        {{'PAYCHECK' | translate}}
-      </p>
+      <p class="title">{{'PAYCHECK' | translate}}</p>
     </div>
   </div>
 
   <div class="columns has-text-centered-mobile is-vcentered">
     <div class="column">
-      <p class="has-text-weight-bold">
-        {{'GROSS_INCOME' | translate}}
-      </p>
-      <p class="help">
-        {{'GROSS_INCOME_HELP' | translate}}
-      </p>
+      <p class="has-text-weight-bold">{{'GROSS_INCOME' | translate}}</p>
+      <p class="help">{{'GROSS_INCOME_HELP' | translate}}</p>
     </div>
     <div class="column is-narrow">
-      <p class="has-text-success">
-        {{paycheck?.grossIncome | number:'1.2-2'}} €
-      </p>
+      <p class="has-text-success">{{paycheck?.grossIncome | number:'1.2-2'}} €</p>
     </div>
   </div>
 
-  <div class="columns has-text-centered-mobile is-vcentered" *ngFor="let tax of paycheck?.taxes">
+  <div *ngFor="let tax of paycheck?.taxes" class="columns has-text-centered-mobile is-vcentered">
     <div class="column">
-      <p class="has-text-weight-bold">
-        {{tax?.code | translate}}
-      </p>
-      <p class="help">
-        {{tax?.code + '_HELP' | translate}}
-      </p>
+      <p class="has-text-weight-bold">{{tax?.code | translate}}</p>
+      <p class="help">{{tax?.code + '_HELP' | translate}}</p>
     </div>
     <div class="column is-narrow">
-      <p class="has-text-danger">
-        - {{tax?.value | number:'1.2-2'}} €
-      </p>
+      <p class="has-text-danger">- {{tax?.value | number:'1.2-2'}} €</p>
     </div>
   </div>
 
-  <div class="columns has-text-centered-mobile is-vcentered" *ngFor="let credit of paycheck?.credits">
+  <div *ngFor="let credit of paycheck?.credits" class="columns has-text-centered-mobile is-vcentered">
     <div class="column">
-      <p class="has-text-weight-bold">
-        {{credit?.code | translate}}
-      </p>
-      <p class="help">
-        {{credit?.code + '_HELP' | translate}}
-      </p>
+      <p class="has-text-weight-bold">{{credit?.code | translate}}</p>
+      <p class="help">{{credit?.code + '_HELP' | translate}}</p>
     </div>
     <div class="column is-narrow">
-      <p class="has-text-success">
-        + {{credit?.value | number:'1.2-2'}} €
-      </p>
+      <p class="has-text-success">+ {{credit?.value | number:'1.2-2'}} €</p>
     </div>
   </div>
-
-    <div class="columns has-text-centered-mobile is-vcentered">
-      <div class="column">
-        <div class="hr"></div>
-      </div>
-    </div>
 
   <div class="columns has-text-centered-mobile is-vcentered">
     <div class="column">
-      <p class="has-text-weight-bold">
-        {{'NET_INCOME' | translate}}
-      </p>
-      <p class="help">
-        {{'NET_INCOME_HELP' | translate}}
-      </p>
+      <div class="hr"></div>
+    </div>
+  </div>
+
+  <div class="columns has-text-centered-mobile is-vcentered">
+    <div class="column">
+      <p class="has-text-weight-bold">{{'NET_INCOME' | translate}}</p>
+      <p class="help">{{'NET_INCOME_HELP' | translate}}</p>
     </div>
     <div class="column is-narrow">
-      <p class="has-text-info">
-        {{paycheck?.netIncome | number:'1.2-2'}} €
-      </p>
+      <p class="has-text-info">{{paycheck?.netIncome | number:'1.2-2'}} €</p>
     </div>
   </div>
 
   <div class="columns has-text-centered">
     <div class="column">
-      <button class="button is-primary is-medium is-fullwidth" (click)="onBack()">
+      <button (click)="onBack()" class="button is-primary is-medium is-fullwidth">
         <span class="icon">
           <i class="fas fa-fw fa-chevron-left"></i>
         </span>

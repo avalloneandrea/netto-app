@@ -8,9 +8,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
-import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { PaycheckDashboardComponent } from './paycheck-dashboard/paycheck-dashboard.component';
 import { PaycheckViewerComponent } from './paycheck-viewer/paycheck-viewer.component';
 
@@ -22,18 +21,18 @@ import { PaycheckViewerComponent } from './paycheck-viewer/paycheck-viewer.compo
     HttpClientModule,
     ReactiveFormsModule,
     TranslateModule.forRoot({
-      loader: { provide: TranslateLoader, deps: [ HttpClient ], useFactory: (createTranslateLoader) }
-    })
+      loader: { provide: TranslateLoader, deps: [ HttpClient ], useFactory: (createTranslateLoader) },
+    }),
   ],
   declarations: [
     AppComponent,
     PaycheckDashboardComponent,
-    PaycheckViewerComponent
+    PaycheckViewerComponent,
   ],
   providers: [
-    { provide: LOCALE_ID, deps: [ TranslateService ], useFactory: createLocaleId }
+    { provide: LOCALE_ID, deps: [ TranslateService ], useFactory: createLocaleId },
   ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [ AppComponent ],
 })
 export class AppModule {}
 

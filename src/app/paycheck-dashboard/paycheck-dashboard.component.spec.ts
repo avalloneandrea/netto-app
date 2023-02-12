@@ -2,110 +2,130 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
-
-import { PaycheckDashboardComponent } from './paycheck-dashboard.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import createSpyObj = jasmine.createSpyObj;
+import { TranslateModule } from '@ngx-translate/core';
+import { PaycheckViewerComponent } from '../paycheck-viewer/paycheck-viewer.component';
+import { PaycheckDashboardComponent } from './paycheck-dashboard.component';
 
 describe('PaycheckDashboardComponent', () => {
 
   let fixture: ComponentFixture<PaycheckDashboardComponent>;
+  let router: Router;
   let component: PaycheckDashboardComponent;
   let element: HTMLElement;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        NoopAnimationsModule,
-        ReactiveFormsModule,
-        RouterTestingModule,
-        TranslateModule.forRoot(),
-      ],
-      declarations: [ PaycheckDashboardComponent ]
-    }).compileComponents();
-  }));
+  describe('using default params', () => {
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PaycheckDashboardComponent);
-    component = fixture.componentInstance;
-    element = fixture.nativeElement;
-    fixture.detectChanges();
-  });
+    const defaultParams = {
+      grossIncome: null,
+      additionalSalaries: 1,
+      netAllowance: null,
+    };
 
-  it('should create the component', () => {
-    expect(component).toBeDefined();
-    expect(component.form.value.grossIncome).toBeNull();
-    expect(component.form.value.additionalSalaries).toEqual(1);
-    expect(component.form.value.netAllowance).toBeNull();
-  });
-
-  it('should display the gross income field', () => {
-    const field = element.querySelectorAll('.field')[0];
-    expect(field.querySelector('label').textContent).toContain('GROSS_INCOME');
-    expect(field.querySelector('input').placeholder).toEqual('0');
-  });
-
-  it('should display the num of salaries field', () => {
-    const field = element.querySelectorAll('.field')[1];
-    expect(field.querySelector('label').textContent).toContain('NUM_OF_SALARIES');
-    expect(field.querySelector('select').value).toEqual('1');
-  });
-
-  it('should display the net allowance field', () => {
-    const field = element.querySelectorAll('.field')[2];
-    expect(field.querySelector('label').textContent).toContain('NET_ALLOWANCE');
-    expect(field.querySelector('input').placeholder).toEqual('0');
-  });
-
-  it('should display the submit button', () => {
-    expect(element.querySelector('button').textContent).toContain('SUBMIT');
-  });
-
-  describe('when the submit button has been clicked', () => {
-
-    let router;
-
-    beforeEach(() => {
-      router = spyOn(TestBed.inject(Router), 'navigate');
-      element.querySelector('button').click();
-      fixture.detectChanges();
-    });
-
-    it('should disable the form', () => {
-      expect(component.form.disabled).toBeTruthy();
-    });
-
-    it('should trigger the navigation', () => {
-      expect(router).toHaveBeenCalledTimes(1);
-    });
-
-  });
-
-  describe('when the viewer back button has been clicked', () => {
-
-    beforeEach(() => {
-      TestBed.inject(ActivatedRoute).snapshot.queryParams = createSpyObj('queryParams', {}, {
-        grossIncome: 20000,
-        netAllowance: 100
-      });
+    beforeEach(waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [ PaycheckDashboardComponent ],
+        imports: [
+          NoopAnimationsModule,
+          ReactiveFormsModule,
+          RouterTestingModule.withRoutes([
+            { path: 'paycheck-viewer', component: PaycheckViewerComponent } ]),
+          TranslateModule.forRoot(),
+        ],
+      }).compileComponents();
       fixture = TestBed.createComponent(PaycheckDashboardComponent);
+      router = TestBed.inject(Router);
       component = fixture.componentInstance;
       element = fixture.nativeElement;
       fixture.detectChanges();
-    });
+    }));
 
-    it('should display the gross income field', () => {
-      const field = element.querySelectorAll('.field')[0];
-      expect(field.querySelector('label').textContent).toContain('GROSS_INCOME');
-      expect(field.querySelector('input').value).toEqual('20000');
-    });
+    it('should be created', waitForAsync(() => {
+      expect(component).toBeDefined();
+      expect(component.form.value).toEqual(defaultParams);
 
-    it('should display the net allowance field', () => {
-      const field = element.querySelectorAll('.field')[2];
-      expect(field.querySelector('label').textContent).toContain('NET_ALLOWANCE');
-      expect(field.querySelector('input').value).toEqual('100');
-    });
+      const grossIncome = element.querySelectorAll('.field')[0];
+      expect(grossIncome.querySelector('label').textContent).toContain('GROSS_INCOME');
+      expect(grossIncome.querySelector('input').placeholder).toEqual('0');
+
+      const additionalSalaries = element.querySelectorAll('.field')[1];
+      expect(additionalSalaries.querySelector('label').textContent).toContain('NUM_OF_SALARIES');
+      expect(additionalSalaries.querySelector('select').value).toEqual('1');
+
+      const netAllowance = element.querySelectorAll('.field')[2];
+      expect(netAllowance.querySelector('label').textContent).toContain('NET_ALLOWANCE');
+      expect(netAllowance.querySelector('input').placeholder).toEqual('0');
+
+      expect(element.querySelector('button').textContent).toContain('SUBMIT');
+    }));
+
+    it('should navigate to the viewer component', waitForAsync(() => {
+      component.onSubmit();
+      fixture.whenStable().then(() => {
+        expect(component.form.disabled).toBeTruthy();
+        expect(router.url).toContain('/paycheck-viewer');
+        expect(router.url).toContain(`additionalSalaries=1`);
+      });
+    }));
+
+  });
+
+  describe('using custom params', () => {
+
+    const customParams = {
+      grossIncome: 20000,
+      additionalSalaries: 2,
+      netAllowance: 100,
+    };
+
+    beforeEach(waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [ PaycheckDashboardComponent ],
+        imports: [
+          NoopAnimationsModule,
+          ReactiveFormsModule,
+          RouterTestingModule.withRoutes([
+            { path: 'paycheck-viewer', component: PaycheckViewerComponent } ]),
+          TranslateModule.forRoot(),
+        ],
+        providers: [ { provide: ActivatedRoute, useValue: { snapshot: { queryParams: customParams } } } ],
+      }).compileComponents();
+      fixture = TestBed.createComponent(PaycheckDashboardComponent);
+      router = TestBed.inject(Router);
+      component = fixture.componentInstance;
+      element = fixture.nativeElement;
+      fixture.detectChanges();
+    }));
+
+    it('should be created', waitForAsync(() => {
+      expect(component).toBeDefined();
+      expect(component.form.value).toEqual(customParams);
+
+      const grossIncome = element.querySelectorAll('.field')[0];
+      expect(grossIncome.querySelector('label').textContent).toContain('GROSS_INCOME');
+      expect(grossIncome.querySelector('input').value).toEqual('20000');
+
+      const additionalSalaries = element.querySelectorAll('.field')[1];
+      expect(additionalSalaries.querySelector('label').textContent).toContain('NUM_OF_SALARIES');
+      expect(additionalSalaries.querySelector('select').value).toEqual('2');
+
+      const netAllowance = element.querySelectorAll('.field')[2];
+      expect(netAllowance.querySelector('label').textContent).toContain('NET_ALLOWANCE');
+      expect(netAllowance.querySelector('input').value).toEqual('100');
+
+      expect(element.querySelector('button').textContent).toContain('SUBMIT');
+    }));
+
+    it('should navigate to the viewer component', waitForAsync(() => {
+      component.onSubmit();
+      fixture.whenStable().then(() => {
+        expect(component.form.disabled).toBeTruthy();
+        expect(router.url).toContain('/paycheck-viewer');
+        expect(router.url).toContain(`grossIncome=20000`);
+        expect(router.url).toContain(`additionalSalaries=2`);
+        expect(router.url).toContain(`netAllowance=100`);
+      });
+    }));
 
   });
 
