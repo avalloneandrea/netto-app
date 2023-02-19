@@ -4,7 +4,7 @@
     <div class="field">
       <label class="label">{{'GROSS_INCOME' | translate}}</label>
       <div class="control has-icons-right">
-        <input class="input is-primary is-medium" formControlName="grossIncome" inputMode="decimal" placeholder="0" step="1000" type="number">
+        <input class="input is-primary is-medium" formControlName="grossIncome" inputMode="decimal" min="0" placeholder="0" step="1000" type="number">
         <span class="icon is-right has-text-primary">
           <i class="fas fa-fw fa-euro-sign"></i>
         </span>
@@ -28,7 +28,7 @@
     <div class="field">
       <label class="label">{{'NET_ALLOWANCE' | translate}}</label>
       <div class="control has-icons-right">
-        <input class="input is-primary is-medium" formControlName="netAllowance" inputMode="decimal" placeholder="0" step="100" type="number">
+        <input class="input is-primary is-medium" formControlName="netAllowance" inputMode="decimal" min="0" placeholder="0" step="100" type="number">
         <span class="icon is-right has-text-primary">
           <i class="fas fa-fw fa-euro-sign"></i>
         </span>
@@ -38,7 +38,7 @@
     <div class="field">
       <label class="label">&nbsp;</label>
       <div class="control">
-        <button [class.is-loading]="form.disabled" class="button is-primary is-medium is-fullwidth" type="submit">
+        <button [class.is-loading]="form.disabled" [disabled]="form.invalid" class="button is-primary is-medium is-fullwidth" type="submit">
           <span class="icon">
             <i class="far fa-fw fa-file-alt"></i>
           </span>

@@ -1,6 +1,6 @@
 import { query, transition, trigger, useAnimation } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { fadeIn } from '../app-animations';
 
@@ -24,9 +24,9 @@ export class PaycheckDashboardComponent implements OnInit {
   ngOnInit(): void {
     const queryParams = this.route.snapshot.queryParams;
     this.form = this.formBuilder.group({
-      grossIncome: [ queryParams['grossIncome'] ],
-      additionalSalaries: [ queryParams['additionalSalaries'] || 1 ],
-      netAllowance: [ queryParams['netAllowance'] ],
+      grossIncome: [ queryParams['grossIncome'], Validators.min(0) ],
+      additionalSalaries: [ queryParams['additionalSalaries'] || 1, Validators.min(0) ],
+      netAllowance: [ queryParams['netAllowance'], Validators.min(0) ],
     });
   }
 
