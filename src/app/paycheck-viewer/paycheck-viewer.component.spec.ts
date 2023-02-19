@@ -3,7 +3,6 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
-import { PaycheckDashboardComponent } from '../paycheck-dashboard/paycheck-dashboard.component';
 import { PaycheckViewerComponent } from './paycheck-viewer.component';
 
 describe('PaycheckViewerComponent', () => {
@@ -31,8 +30,7 @@ describe('PaycheckViewerComponent', () => {
       declarations: [ PaycheckViewerComponent ],
       imports: [
         NoopAnimationsModule,
-        RouterTestingModule.withRoutes([
-          { path: 'paycheck-dashboard', component: PaycheckDashboardComponent } ]),
+        RouterTestingModule,
         TranslateModule.forRoot(),
       ],
       providers: [ { provide: ActivatedRoute, useValue: { snapshot: { data: { paycheck }, queryParams } } } ],
@@ -74,13 +72,10 @@ describe('PaycheckViewerComponent', () => {
   }));
 
   it('should navigate to the dashboard component', waitForAsync(() => {
+    const navigate = spyOn(router, 'navigate');
     component.onBack();
-    fixture.whenStable().then(() => {
-      expect(router.url).toContain('/paycheck-dashboard');
-      expect(router.url).toContain(`grossIncome=${queryParams.grossIncome}`);
-      expect(router.url).toContain(`additionalSalaries=${queryParams.additionalSalaries}`);
-      expect(router.url).toContain(`netAllowance=${queryParams.netAllowance}`);
-    });
+    fixture.detectChanges();
+    expect(navigate).toHaveBeenCalledWith([ 'paycheck-dashboard' ], { queryParams });
   }));
 
 });

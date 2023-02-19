@@ -4,7 +4,6 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
-import { PaycheckViewerComponent } from '../paycheck-viewer/paycheck-viewer.component';
 import { PaycheckDashboardComponent } from './paycheck-dashboard.component';
 
 describe('PaycheckDashboardComponent', () => {
@@ -28,8 +27,7 @@ describe('PaycheckDashboardComponent', () => {
         imports: [
           NoopAnimationsModule,
           ReactiveFormsModule,
-          RouterTestingModule.withRoutes([
-            { path: 'paycheck-viewer', component: PaycheckViewerComponent } ]),
+          RouterTestingModule,
           TranslateModule.forRoot(),
         ],
       }).compileComponents();
@@ -60,12 +58,11 @@ describe('PaycheckDashboardComponent', () => {
     }));
 
     it('should navigate to the viewer component', waitForAsync(() => {
+      const navigate = spyOn(router, 'navigate');
       component.onSubmit();
-      fixture.whenStable().then(() => {
-        expect(component.form.disabled).toBeTruthy();
-        expect(router.url).toContain('/paycheck-viewer');
-        expect(router.url).toContain(`additionalSalaries=1`);
-      });
+      fixture.detectChanges();
+      expect(component.form.disabled).toBeTruthy();
+      expect(navigate).toHaveBeenCalledWith([ 'paycheck-viewer' ], { queryParams: defaultParams });
     }));
 
   });
@@ -84,8 +81,7 @@ describe('PaycheckDashboardComponent', () => {
         imports: [
           NoopAnimationsModule,
           ReactiveFormsModule,
-          RouterTestingModule.withRoutes([
-            { path: 'paycheck-viewer', component: PaycheckViewerComponent } ]),
+          RouterTestingModule,
           TranslateModule.forRoot(),
         ],
         providers: [ { provide: ActivatedRoute, useValue: { snapshot: { queryParams: customParams } } } ],
@@ -117,14 +113,11 @@ describe('PaycheckDashboardComponent', () => {
     }));
 
     it('should navigate to the viewer component', waitForAsync(() => {
+      const navigate = spyOn(router, 'navigate');
       component.onSubmit();
-      fixture.whenStable().then(() => {
-        expect(component.form.disabled).toBeTruthy();
-        expect(router.url).toContain('/paycheck-viewer');
-        expect(router.url).toContain(`grossIncome=20000`);
-        expect(router.url).toContain(`additionalSalaries=2`);
-        expect(router.url).toContain(`netAllowance=100`);
-      });
+      fixture.detectChanges();
+      expect(component.form.disabled).toBeTruthy();
+      expect(navigate).toHaveBeenCalledWith([ 'paycheck-viewer' ], { queryParams: customParams });
     }));
 
   });
